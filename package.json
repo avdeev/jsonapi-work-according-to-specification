@@ -35,7 +35,7 @@
     "browser-sync": "^2.24.4",
     "del": "^3.0.0",
     "gulp": "^3.9.1",
-    "gulp-gh-pages": "^0.5.4",
+    "gulp-gh-pages": "git@github.com:tekd/gulp-gh-pages.git#update-dependency",
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.6.1",
     "gulp-rsync": "0.0.8",
