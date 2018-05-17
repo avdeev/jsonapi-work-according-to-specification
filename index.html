@@ -79,54 +79,95 @@
 	<!-- какие бывают стили построения API (RPC vs REST vs GraphQL) -->
 
 	<section class="slide">
-		<h2 class="shout">Знай свои корни</h2>
+		<h2 class="shout">История</h2>
 	</section>
 
 	<section class="slide">
-		<h2 class="shout">RPC (1981 год)</h2>
-	</section>
-
-	<section class="slide">
-		<h2>🖼️ RPC Request</h2>
-		<pre>
-			<code><mark>POST /sayHello</mark> HTTP/1.1</code>
-			<code>HOST: api.example.com</code>
-			<code>Content-Type: application/json</code>
-			<code><mark>{"name": "DevConf"}</mark></code>
-		</pre>
-	</section>
-
-	<section class="slide">
-		<h2>🖼️ RPC Response</h2>
-		<pre>
-			<code>/* Signature */</code>
-			<code>function sayHello(name) {</code>
-			<code>  // ...</code>
-			<code>}</code>
-			<code> </code>
-			<code>/* Usage */</code>
-			<code><mark>sayHello("DevConf");</mark></code>
-		</pre>
-	</section>
-
-	<section class="slide">
-		<h2>Спецификации RPC API</h2>
-		<ol style="font-size: 40px;">
-			<li>XML-RPC (from 1998)</li>
-			<li class="next">JSON-RPC (2005 - 2013.01.04)</li>
-			<li class="next">SOAP (27 April 2007)</li>
-			<li class="next">GraphQL (October 2016)</li>
+		<ol class="place" style="font-size: 60px">
+			<li class="next"><b>1981</b> RPC</li>
+			<li class="next"><b>2000</b> REST</li>
 		</ol>
 	</section>
 
 	<section class="slide">
-		<h2 class="shout">REST (2000 год)</h2>
+		<h2 class="shout">RPC</h2>
 	</section>
 
 	<section class="slide">
+		<h2>🖼️ RPC Пример</h2>
+
+		<ol style="font-size: 40px">
+			<li class="next"><b>Клиент:</b> вызови функцию <i>"hello"</i> с параметром <i>"DevConf"</i></li>
+			<li class="next"><b>Сервер:</b> ответ - <i>"Hello DevConf!"</i></li>
+		</ol>
+	</section>
+
+	<section class="slide">
+		<h2>XML-RPC (from 1998)</h2>
+
+		<pre class="next">
+			<code>&lt;?xml version="1.0"?&gt;</code>
+			<code>&lt;methodCall&gt;</code>
+			<code>  &lt;methodName&gt;<mark>examples.getStateName</mark>&lt;/methodName&gt;</code>
+			<code>  &lt;params&gt;</code>
+			<code>    &lt;param&gt;<mark>&lt;value&gt;&lt;i4&gt;40&lt;/i4&gt;&lt;/value&gt;</mark>&lt;/param&gt;</code>
+			<code>  &lt;/params&gt;</code>
+			<code>&lt;/methodCall&gt;</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>SOAP (2007)</h2>
+
+		<pre class="next">
+			<code>&lt;soap:Envelope xmlns:soap=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;</code>
+			<code>   &lt;soap:Body&gt;</code>
+			<code>     &lt;<mark>getProductDetails</mark> xmlns=&quot;http://warehouse.example.com/ws&quot;&gt;</code>
+			<code>       <mark>&lt;productID&gt;12345&lt;/productID&gt;</mark></code>
+			<code>     &lt;/getProductDetails&gt;</code>
+			<code>   &lt;/soap:Body&gt;</code>
+			<code>&lt;/soap:Envelope&gt;</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>JSON-RPC (2013)</h2>
+
+		<pre class="next">
+			<code>{</code>
+			<code> "jsonrpc": "2.0", "method": <mark>"subtract"</mark>,</code>
+			<code> "params": <mark>[42, 23]</mark>, "id": 1</code>
+			<code>}</code>
+		</pre>
+
+		<pre class="next">
+			<code>{"jsonrpc": "2.0", "result": <mark>19</mark>, "id": 1}</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>GraphQL (2016)</h2>
+
+		<pre class="next">
+			<code><mark>POST /graphql</mark> HTTP/1.1</code>
+			<code>Content-Type: application/json</code>
+			<code>{</code>
+			<code>  "query": "...",</code>
+			<code>  "operationName": "...",</code>
+			<code>  "variables": { "myVariable": "someValue", ... }</code>
+			<code>}</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2 class="shout">REST</h2>
+	</section>
+
+	<!-- можно разбить на 6 слайдов -->
+	<section class="slide">
 		<h2>Требования к архитектуре REST</h2>
 		<ol style="font-size: 28px;">
-			<li>Модель клиент-сервер</li>
+			<li class="next">Модель клиент-сервер</li>
 			<li class="next">Отсутствие состояния</li>
 			<li class="next">Кэширование</li>
 			<li class="next">Единообразие интерфейса</li>
@@ -136,47 +177,60 @@
 	</section>
 
 	<section class="slide">
-		<h2>RESTful</h2>
-		<figure>
-			<blockquote>
-				<p>Для веб-служб, построенных с учётом REST (то есть не нарушающих накладываемых им ограничений), применяют термин «RESTful».</p>
-			</blockquote>
-			<figcaption>Wikipedia</figcaption>
-		</figure>
-	</section>
+		<h2>OData (2015)</h2>
 
-	<section class="slide">
-		<h2 class="shout">Пример RESTful API</h2>
-	</section>
-
-	<section class="slide">
-		<h2>RESTful Request</h2>
-		<pre>
-			<code><mark>GET /articles</mark> HTTP/1.1</code>
-			<code>HOST: api.example.com</code>
-			<code>Content-Type: <mark>application/json</mark></code>
+		<pre class="next">
+			<code>GET http://services.odata.org/v4/TripPinServiceRW/People HTTP/1.1</code>
+			<code>OData-Version: 4.0</code>
+			<code>OData-MaxVersion: 4.0</code>
 		</pre>
 	</section>
 
 	<section class="slide">
-		<h2>RESTful Response</h2>
-		<pre>
+		<h2>OData (2015)</h2>
+
+		<pre style="font-size: 0.6em;">
 			<code>HTTP/1.1 200 OK</code>
-			<code>Content-Type: application/json</code>
-			<code> </code>
-			<code>[</code>
-			<code>  { "id": 1, "name": "Вася"},</code>
-			<code>  { "id": 2, "name": "Петя"}</code>
-			<code>]</code>
+			<code>Content-Type: application/json; odata.metadata=minimal</code>
+			<code>OData-Version: 4.0</code>
+			<code>{</code>
+			<code>  '@odata.context': 'http://services.odata.org/V4/...</code>
+			<code>  '@odata.nextLink': 'http://services.odata.org/V4/...</code>
+			<code>  'value': [{</code>
+			<code>    '@odata.id': 'http://services.odata.org/V4/...</code>
+			<code>    '@odata.etag': 'W/'08D1D5BD423E5158'',</code>
+			<code>    '@odata.editLink': 'http://services.odata.org/V4/...</code>
+			<code>    'UserName': 'russellwhyte',</code>
+			<code>    ...</code>
+		</pre>
+	</section>
+
+
+	<section class="slide">
+		<h2>JSON API (2015)</h2>
+
+		<pre class="next">
+			<code>GET /articles HTTP/1.1</code>
+			<code>Accept: <mark>application/vnd.api+json</mark></code>
 		</pre>
 	</section>
 
 	<section class="slide">
-		<h2>Спецификации RESTful API</h2>
-		<ol style="font-size: 48px;">
-			<li>OData (2007 - v4, 2015)</li>
-			<li class="next">JSON API (v1.0 Stable, 2015-05-29)</li>
-		</ol>
+		<h2>JSON API (2015)</h2>
+
+		<pre style="font-size: 0.7em;">
+			<code>HTTP/1.1 200 OK</code>
+			<code>Content-Type: <mark>application/vnd.api+json</mark></code>
+			<code>{</code>
+			<code>  "links": { "self": "http://example.com/articles },</code>
+			<code>  "data": [{</code>
+			<code>    "type": "articles", "id": "1",</code>
+			<code>    "attributes": {</code>
+			<code>      "title": "JSON API paints my bikeshed!"</code>
+			<code>    }</code>
+			<code>  }]</code>
+			<code>}</code>
+		</pre>
 	</section>
 
 	<!-- начинаем разрабатывать RESTful -->
@@ -186,8 +240,8 @@
 	</section>
 
 	<section class="slide">
-		<h2>Endpoints</h2>
-		<table>
+		<h2>Единообразный интерфейс</h2>
+		<table class="striped">
 			<tr>
 				<th scope="col">Метод</th>
 				<th>Путь</th>
@@ -370,7 +424,7 @@
 		<pre>
 			<code>HTTP/1.1 200 OK</code>
 			<code>{ "data": [{</code>
-			<code>    "id": "1", "type": "article",</code>
+			<code>    "id": "1", <mark>"type": "article"</mark>,</code>
 			<code>    "attributes": { "title": "JSON API" },</code>
 			<code>    "relationships": { ... }</code>
 			<code>  }, ... ]</code>
@@ -385,7 +439,7 @@
 			<code>{ "data": [{</code>
 			<code>    ...</code>
 			<code>    "relationships": {</code>
-			<code>      "author": { "id": 1, "type": "people" } }</code>
+			<code>      "author": { "id": 1, <mark>"type": "people"</mark> } }</code>
 			<code>    }</code>
 			<code>  }, ... ]</code>
 			<code>}</code>
@@ -398,7 +452,7 @@
 			<code>HTTP/1.1 200 OK</code>
 			<code>{</code>
 			<code>  "data": [ ... ],</code>
-			<code>  "included": [{</code>
+			<code>  <mark>"included":</mark> [{</code>
 			<code>    "id": 1, "type": "people",</code>
 			<code>    "attributes": { "name": "Avdeev" }</code>
 			<code>  }]</code>
@@ -413,14 +467,14 @@
 	<section class="slide">
 		<h2>👌 Решение</h2>
 		<pre>
-			<code>GET /articles/1<mark>?fields[articles]=body</mark> HTTP/1.1</code>
+			<code>GET /articles/1<mark>?fields[articles]=title</mark> HTTP/1.1</code>
 		</pre>
 
 		<pre>
 			<code>HTTP/1.1 200 OK</code>
 			<code>{ "data": [{</code>
 			<code>    "id": "1", "type": "article",</code>
-			<code>    "attributes": { <mark>"body": "JSON API"</mark> },</code>
+			<code>    "attributes": { <mark>"title": "JSON API"</mark> },</code>
 			<code>  }, ... ]</code>
 			<code>}</code>
 		</pre>
@@ -447,6 +501,17 @@
 	</section>
 
 	<section class="slide">
+		<h2>Не упомянул про</h2>
+
+		<ol>
+			<li class="next">Гипермедиа</li>
+			<li class="next">Фильтрация</li>
+			<li class="next">Сортировка</li>
+			<li class="next">Коды ответов</li>
+		</ol>
+	</section>
+
+	<section class="slide">
 		<h2>Экосистема JSON API</h2>
 		<p>Список реализаций спефикации - <a href="http://jsonapi.org/implementations/" target="_blank">http://jsonapi.org/implementations/</a></p>
 		<ol>
@@ -454,6 +519,43 @@
 			<li class="next">для 32 языков программирования</li>
 			<li class="next">и это только добавленные в каталог</li>
 			<li class="next">PR Welcome</li>
+		</ol>
+	</section>
+
+	<section class="slide">
+		<h2>Плюсы JSON API</h2>
+
+		<ol>
+			<li class="next">Общее соглашение для всех</li>
+			<li class="next">Меньше споров внутри команды</li>
+			<li class="next">Высокая производительность разработки</li>
+			<li class="next">Популярные проблемы уже решены</li>
+			<li class="next">Просто для понимания</li>
+			<li class="next">Open Source</li>
+		</ol>
+	</section>
+
+
+	<section class="slide">
+		<h2>🤯 Минусы JSON API</h2>
+
+		<ol>
+			<li class="next"><b>Фронтенд</b>: надо парсить ответы</li>
+			<li class="next"><b>Бекенд</b>: контроль вложенности</li>
+			<li class="next"><b>Бекенд</b>: рекурсивные запросы</li>
+			<li class="next"><b>Бекенд</b>: безопасность</li>
+			<li class="next">Спека сложно читается (не все смогли)</li>
+			<li class="next">Не все либы реализуют спеку хорошо</li>
+		</ol>
+	</section>
+
+	<section class="slide">
+		<h2>Подводные камни JSON API</h2>
+
+		<ol>
+			<li class="next">Количество связей в выдаче неограничено</li>
+			<li class="next">Непонятно как работать со связями многие-ко-многим</li>
+			<li class="next">...</li>
 		</ol>
 	</section>
 
