@@ -8,30 +8,26 @@
     <style>
         .shower {
             --slide-ratio: calc(16 / 9);
-            font-size: 20px;
+            --ribbon-size: 40px;
+            font-size: 22px;
         }
 
-        .progress {
-            border-top-color: #c0182a;
-            border-left-color: #c0182a;
-            border-bottom-color: #c0182a;
+        .progress::before {
+            background-color: #fa1100;
         }
 
         .slide {
-            padding-top: 140px;
-            background: #fff url(pictures/dc2_next.png) no-repeat;
+            background: #fff url(pictures/fcconf_bg.png) no-repeat;
+            background-size: cover;
         }
 
         .slide::after {
             top: auto;
             bottom: 0;
+            left: 40px;
+            right: auto;
             color: initial;
             background: none;
-        }
-
-        .slide .shout {
-            padding-left: 30px;
-            padding-right: 30px;
         }
     </style>
 </head>
@@ -46,24 +42,21 @@
         <h2>JSON API - работаем по спецификации</h2>
         <p><a href="https://alexey-avdeev.com/">Алексей Авдеев</a>, <a href="https://neuron.digital/">Neuron.Digital</a></p>
         <figure>
-            <img class="cover h" src="pictures/dc2_back.png" alt="DevConf Background">
+            <img class="cover h" src="pictures/fcconf_title.png" alt="FrontendConf Background">
         </figure>
         <style>
             #cover h2 {
-                margin:30px 0 0;
-                color:#FFF;
-                text-align:center;
-                font-size:70px;
+                margin: 0;
+                color: #000;
+                font-size:60px;
             }
             #cover p {
-                margin:10px 0 0;
-                text-align:center;
-                color:#FFF;
-                font-style:italic;
-                font-size:20px;
+                margin: 10px 0 0;
+                color: #000;
+                font-size: 30px;
             }
             #cover p a {
-                color:#FFF;
+                color: #000;
             }
         </style>
     </section>
