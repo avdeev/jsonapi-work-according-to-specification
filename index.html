@@ -21,6 +21,10 @@
             background-size: cover;
         }
 
+        .slide.clear {
+            background-image: none;
+        }
+
         .slide::after {
             top: auto;
             bottom: 0;
@@ -38,7 +42,7 @@
         <p><a href="https://alexey-avdeev.com/">Алексей Авдеев</a>, <a href="https://neuron.digital/">Neuron.Digital</a></p>
     </header>
 
-    <section class="slide clear" id="cover" style="background-image: none;">
+    <section class="slide clear" id="cover">
         <h2>JSON API - работаем по спецификации</h2>
         <p><a href="https://alexey-avdeev.com/">Алексей Авдеев</a>, <a href="https://neuron.digital/">Neuron.Digital</a></p>
         <figure>
@@ -100,6 +104,35 @@
     </section>
 
     <section class="slide">
+        <h2 class="shout">REST</h2>
+    </section>
+
+    <!-- можно разбить на 6 слайдов -->
+    <section class="slide">
+        <h2>Требования к архитектуре REST</h2>
+        <ol style="font-size: 28px;">
+            <li class="next">Модель клиент-сервер</li>
+            <li class="next">Отсутствие состояния</li>
+            <li class="next">Кэширование</li>
+            <li class="next">Единообразие интерфейса</li>
+            <li class="next">Слои</li>
+            <li class="next">Код по требованию (необязательное ограничение)</li>
+        </ol>
+    </section>
+
+    <section class="slide">
+        <img class="place" width="540" src="pictures/1200px-Two-tier_architecture.ru.svg.png" alt="Two-tier architecture">
+    </section>
+
+    <section class="slide clear">
+        <img class="cover" src="pictures/petstore.png" alt="Petstore">
+    </section>
+
+    <section class="slide clear">
+        <img class="cover" src="pictures/swagger.png" alt="JSON API Swagger">
+    </section>
+
+    <section class="slide">
         <h2>XML-RPC (from 1998)</h2>
 
         <pre class="next">
@@ -154,23 +187,6 @@
             <code>  "variables": { "myVariable": "someValue", ... }</code>
             <code>}</code>
         </pre>
-    </section>
-
-    <section class="slide">
-        <h2 class="shout">REST</h2>
-    </section>
-
-    <!-- можно разбить на 6 слайдов -->
-    <section class="slide">
-        <h2>Требования к архитектуре REST</h2>
-        <ol style="font-size: 28px;">
-            <li class="next">Модель клиент-сервер</li>
-            <li class="next">Отсутствие состояния</li>
-            <li class="next">Кэширование</li>
-            <li class="next">Единообразие интерфейса</li>
-            <li class="next">Слои</li>
-            <li class="next">Код по требованию (необязательное ограничение)</li>
-        </ol>
     </section>
 
     <section class="slide">
@@ -564,12 +580,7 @@
 
     <section class="slide">
         <h2>Высокий порог входа</h2>
-        <figure>
-            <img src="pictures/v2k1_EoWF88.jpg">
-            <figcaption>
-                Без библиотеки не разберёшься
-            </figcaption>
-        </figure>
+        <img class="place" src="pictures/v2k1_EoWF88.jpg">
     </section>
 
     <section class="slide">
@@ -602,7 +613,7 @@
     </section>
 
     <section class="slide">
-        <h2>Материалы</h2>
+        <h2>За подробностями</h2>
         <ol style="font-size: 40px;">
             <li><a href="http://jsonapi.org/" target="_blank">http://jsonapi.org/</a></li>
             <li><a href="http://www.odata.org/" target="_blank">http://www.odata.org/</a></li>
