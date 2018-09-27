@@ -9,7 +9,6 @@
         .shower {
             --slide-ratio: calc(16 / 9);
             --ribbon-size: 40px;
-            font-size: 22px;
         }
 
         .progress::before {
@@ -67,7 +66,7 @@
 
     <section class="slide">
         <h2>👨‍💻 О себе</h2>
-        <ol style="font-size: 1.2em;">
+        <ol>
             <li>👨 Алексей Авдеев (<a href="https://github.com/avdeev">https://github.com/avdeev</a>)</li>
             <li class="next">🏙️ Из Нижнего Новгорода, работаю в Москве</li>
             <li class="next">🌐 <a href="https://neuron.digital/">Neuron.Digital</a></li>
@@ -79,30 +78,115 @@
 
     <!-- какие бывают стили построения API (RPC vs REST vs GraphQL) -->
 
+    <section class="slide">
+        <h2 class="shout">История</h2>
+    </section>
+
+    <section class="slide">
+        <ol class="place" style="font-size: 3.5em">
+            <li class="next"><b>1981</b> RPC</li>
+            <li class="next"><b>2000</b> REST</li>
+        </ol>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">RPC</h2>
+    </section>
+
+    <section class="slide">
+        <h2>RPC Пример</h2>
+
+        <ol style="font-size: 1.5em">
+            <li class="next"><b>Клиент:</b> вызови функцию <i>"hello"</i> с параметром <i>"FrontendConf"</i></li>
+            <li class="next"><b>Сервер:</b> ответ - <i>"Hello FrontendConf!"</i></li>
+        </ol>
+    </section>
+
+    <section class="slide">
+        <h2>XML-RPC (from 1998)</h2>
+
+        <pre>
+            <code class="next">&lt;?xml version="1.0"?&gt;</code>
+            <code class="next">&lt;methodCall&gt;</code>
+            <code class="next">  &lt;methodName&gt;<mark>examples.getStateName</mark>&lt;/methodName&gt;</code>
+            <code class="next">  &lt;params&gt;</code>
+            <code class="next">    &lt;param&gt;<mark>&lt;value&gt;&lt;i4&gt;40&lt;/i4&gt;&lt;/value&gt;</mark>&lt;/param&gt;</code>
+            <code class="next">  &lt;/params&gt;</code>
+            <code class="next">&lt;/methodCall&gt;</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>Simple Object Access Protocol (SOAP) (2007)</h2>
+
+        <pre>
+            <code class="next">&lt;soap:Envelope xmlns:soap=&quot;http://schemas.xmlsoap.org/...</code>
+            <code class="next">   &lt;soap:Body&gt;</code>
+            <code class="next">     &lt;<mark>getProductDetails</mark> xmlns=&quot;http://warehouse.example...</code>
+            <code class="next">       <mark>&lt;productID&gt;12345&lt;/productID&gt;</mark></code>
+            <code class="next">     &lt;/getProductDetails&gt;</code>
+            <code class="next">   &lt;/soap:Body&gt;</code>
+            <code class="next">&lt;/soap:Envelope&gt;</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>JSON-RPC (2013)</h2>
+
+        <pre>
+            <code class="next">{</code>
+            <code class="next"> "jsonrpc": "2.0", "method": <mark>"subtract"</mark>,</code>
+            <code class="next"> "params": <mark>[42, 23]</mark>, "id": 1</code>
+            <code class="next">}</code>
+        </pre>
+
+        <pre>
+            <code class="next">{"jsonrpc": "2.0", "result": <mark>19</mark>, "id": 1}</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>GraphQL (2016)</h2>
+
+        <pre>
+            <code class="next"><mark>POST /graphql</mark> HTTP/1.1</code>
+            <code class="next">Content-Type: application/json</code>
+            <code class="next">{</code>
+            <code class="next">  "query": "...",</code>
+            <code class="next">  "operationName": "...",</code>
+            <code class="next">  "variables": { "myVariable": "someValue", ... }</code>
+            <code class="next">}</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">REST</h2>
+    </section>
+
+    <!-- можно разбить на 6 слайдов -->
+    <section class="slide">
+        <h2>Требования к архитектуре REST</h2>
+        <ol style="font-size: 28px;">
+            <li class="next">Модель клиент-сервер</li>
+            <li class="next">Отсутствие состояния</li>
+            <li class="next">Кэширование</li>
+            <li class="next">Единообразие интерфейса</li>
+            <li class="next">Слои</li>
+            <li class="next">Код по требованию (необязательное ограничение)</li>
+        </ol>
+    </section>
+
+    <section class="slide">
+        <img class="place" width="540" src="pictures/1200px-Two-tier_architecture.ru.svg.png" alt="Two-tier architecture">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Начинаем проектировать</h2>
+    </section>
+
     <section class="slide clear">
         <img class="cover w" src="pictures/junior-developer.jpg" alt="junior developer">
     </section>
-
-<!-- Документация
-Документация? Мой API самодокументируемый.
-
-Форматы URL
-Изменяем данные при помощи GET-запросов
-
-Полезная нагрузка
-JSON, в котором лежит HTML и XML обернутый в другой XML
-
-Аутентификация
-Напишем свою собственную систему безопасности
-
-Авторизация
-Передаем пароль GET-параметром
-
-Ошибки
-Всегда возвращаем 200 ИЛИ HTML-страницу с ошибкой
-
-Кэш
-Ничего не кэшируется. Максимум, ответы от БД на сервере. -->
 
     <section class="slide">
         <h2 class="shout">RESTful</h2>
@@ -145,11 +229,106 @@ JSON, в котором лежит HTML и XML обернутый в друго�
     </section>
 
     <section class="slide">
+        <h2>Документация</h2>
+
+        <figure class="place">
+            <blockquote>
+                <p>
+                    - Документация? Мой API самодокументируемый.
+                </p>
+            </blockquote>
+            <figcaption>Начинающий бекендер</figcaption>
+        </figure>
+    </section>
+
+    <section class="slide">
+        <h2>Форматы URL</h2>
+
+        <figure class="place next">
+            <blockquote>
+                <p>
+                    - Изменяем данные при помощи GET-запросов
+                </p>
+            </blockquote>
+            <figcaption>Начинающий бекендер</figcaption>
+        </figure>
+    </section>
+
+    <section class="slide">
+        <h2>Полезная нагрузка</h2>
+
+        <figure class="place next">
+            <blockquote>
+                <p>
+                    - JSON, в котором лежит HTML и XML обернутый в другой XML
+                </p>
+            </blockquote>
+            <figcaption>Начинающий бекендер</figcaption>
+        </figure>
+    </section>
+
+    <section class="slide">
+        <h2>Аутентификация</h2>
+
+        <figure class="place next">
+            <blockquote>
+                <p>
+                    - Напишем свою собственную систему безопасности
+                </p>
+            </blockquote>
+            <figcaption>Начинающий бекендер</figcaption>
+        </figure>
+    </section>
+
+    <section class="slide">
+        <h2>Авторизация</h2>
+
+        <figure class="place next">
+            <blockquote>
+                <p>
+                    - Передаем пароль GET-параметром
+                </p>
+            </blockquote>
+            <figcaption>Начинающий бекендер</figcaption>
+        </figure>
+    </section>
+
+    <section class="slide">
+        <h2>Ошибки</h2>
+
+        <figure class="place next">
+            <blockquote>
+                <p>
+                    - Всегда возвращаем 200 ИЛИ HTML-страницу с ошибкой
+                </p>
+            </blockquote>
+            <figcaption>Начинающий бекендер</figcaption>
+        </figure>
+    </section>
+
+    <section class="slide">
+        <h2>Кэш</h2>
+
+        <figure class="place next">
+            <blockquote>
+                <p>
+                    - Ничего не кэшируется. Максимум, ответы от БД на сервере.
+                </p>
+            </blockquote>
+            <figcaption>Начинающий бекендер</figcaption>
+        </figure>
+    </section>
+
+    <section class="slide">
+        <div style="text-align: center; font-size: 160px;">🤦‍</div>
+    </section>
+
+    <section class="slide">
         <h2>Создание</h2>
         <pre>
-            <code>POST /articles HTTP/1.1</code>
-            <code>Content-Type: application/json</code>
-            <code>{ "id": 1, "title": "Про JSON API"}</code>
+            <code class="next">POST /articles HTTP/1.1</code>
+            <code class="next">Content-Type: application/json</code>
+            <code class="next">{ "id": 1, "title": "Про JSON API"}</code>
         </pre>
         <pre>
             <code class="next"><mark>HTTP/1.1 422 Unprocessable Entity</mark></code>
@@ -159,23 +338,19 @@ JSON, в котором лежит HTML и XML обернутый в друго�
     </section>
 
     <section class="slide">
-        <div style="text-align: center; font-size: 160px;">🤦‍</div>
-    </section>
-
-    <section class="slide">
         <h2 class="shout">Возвращайте ошибки</h2>
     </section>
 
     <section class="slide">
         <h2>👌 После</h2>
         <pre>
-            <code>HTTP/1.1 422 Unprocessable Entity</code>
-            <code>Content-Type: application/json</code>
-            <code> </code>
-            <code>{ "errors": [{</code>
-            <code>    "status": "422",</code>
-            <code>    <mark>"title":  "Title already exist",</mark></code>
-            <code>}]}</code>
+            <code class="next">HTTP/1.1 422 Unprocessable Entity</code>
+            <code class="next">Content-Type: application/json</code>
+            <code class="next"> </code>
+            <code class="next">{ "errors": [{</code>
+            <code class="next">    "status": "422",</code>
+            <code class="next">    <mark>"title":  "Title already exist",</mark></code>
+            <code class="next">}]}</code>
         </pre>
     </section>
 
@@ -190,60 +365,60 @@ JSON, в котором лежит HTML и XML обернутый в друго�
     <section class="slide">
         <h2>Запрос списка</h2>
         <pre>
-            <code><mark>GET /articles</mark> HTTP/1.1</code>
-            <code>Content-Type: <mark>application/json</mark></code>
+            <code class="next"><mark>GET /articles</mark> HTTP/1.1</code>
+            <code class="next">Content-Type: <mark>application/json</mark></code>
         </pre>
         <pre>
-            <code>HTTP/1.1 200 OK</code>
-            <code>[</code>
-            <code>  { "id": 1, "title": "Про JSON API"},</code>
-            <code>  { "id": 2, "title": "Про XML-RPC"}</code>
-            <code>]</code>
+            <code class="next">HTTP/1.1 200 OK</code>
+            <code class="next">[</code>
+            <code class="next">  { "id": 1, "title": "Про JSON API"},</code>
+            <code class="next">  { "id": 2, "title": "Про XML-RPC"}</code>
+            <code class="next">]</code>
         </pre>
     </section>
 
     <section class="slide">
         <h2>👌 После</h2>
         <pre>
-            <code>GET /articles?<mark>page[size]=30</mark>&<mark>page[number]=2</mark></code>
-            <code>Content-Type: application/json</code>
+            <code class="next">GET /articles?<mark>page[size]=30</mark>&<mark>page[number]=2</mark></code>
+            <code class="next">Content-Type: application/json</code>
         </pre>
         <pre>
-            <code>HTTP/1.1 200 OK</code>
-            <code>{</code>
-            <code>  "data": [{ "id": 1, "title": "JSON API"}, ...],</code>
-            <code>  "meta": { <mark>"count": 10080</mark> }</code>
-            <code>}</code>
-        </pre>
-    </section>
-
-    <section class="slide">
-        <h2>👌 Или так</h2>
-        <pre>
-            <code>GET /articles?<mark>page[offset]=30</mark>&<mark>page[limit]=30</mark></code>
-            <code>Content-Type: application/json</code>
-        </pre>
-        <pre>
-            <code>HTTP/1.1 200 OK</code>
-            <code>{</code>
-            <code>  "data": [{ "id": 1, "title": "JSON API"}, ...],</code>
-            <code>  "meta": { "count": 10080 }</code>
-            <code>}</code>
+            <code class="next">HTTP/1.1 200 OK</code>
+            <code class="next">{</code>
+            <code class="next">  "data": [{ "id": 1, "title": "JSON API"}, ...],</code>
+            <code class="next">  "meta": { <mark>"count": 10080</mark> }</code>
+            <code class="next">}</code>
         </pre>
     </section>
 
     <section class="slide">
         <h2>👌 Или так</h2>
         <pre>
-            <code>GET /articles?<mark>page[cursor]=250126199840518145</mark></code>
-            <code>Content-Type: application/json</code>
+            <code class="next">GET /articles?<mark>page[offset]=30</mark>&<mark>page[limit]=30</mark></code>
+            <code class="next">Content-Type: application/json</code>
         </pre>
         <pre>
-            <code>HTTP/1.1 200 OK</code>
-            <code>{</code>
-            <code>  "data": [{ "id": 1, "title": "JSON API"}, ...],</code>
-            <code>  "meta": { "count": 10080 }</code>
-            <code>}</code>
+            <code class="next">HTTP/1.1 200 OK</code>
+            <code class="next">{</code>
+            <code class="next">  "data": [{ "id": 1, "title": "JSON API"}, ...],</code>
+            <code class="next">  "meta": { "count": 10080 }</code>
+            <code class="next">}</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>👌 Или так</h2>
+        <pre>
+            <code class="next">GET /articles?<mark>page[cursor]=250126199840518145</mark></code>
+            <code class="next">Content-Type: application/json</code>
+        </pre>
+        <pre>
+            <code class="next">HTTP/1.1 200 OK</code>
+            <code class="next">{</code>
+            <code class="next">  "data": [{ "id": 1, "title": "JSON API"}, ...],</code>
+            <code class="next">  "meta": { "count": 10080 }</code>
+            <code class="next">}</code>
         </pre>
     </section>
 
@@ -264,21 +439,21 @@ JSON, в котором лежит HTML и XML обернутый в друго�
     <section class="slide">
         <h2>Запрос списка со связями</h2>
         <pre>
-            <code>GET /articles?<mark>include=author</mark></code>
-            <code>Content-Type: application/json</code>
+            <code class="next">GET /articles?<mark>include=author</mark></code>
+            <code class="next">Content-Type: application/json</code>
         </pre>
     </section>
 
     <section class="slide">
         <h2>👌 Решение: запрос списка со связями</h2>
         <pre>
-            <code>HTTP/1.1 200 OK</code>
-            <code>{ "data": [{</code>
-            <code>  { attributes: { "id": 1, "title": "JSON API" },</code>
-            <code>  { relationships: {</code>
-            <code>    <mark>"author": { "id": 1, "name": "Avdeev" } }</mark></code>
-            <code>  }, ...</code>
-            <code>}]}</code>
+            <code class="next">HTTP/1.1 200 OK</code>
+            <code class="next">{ "data": [{</code>
+            <code class="next">  { attributes: { "id": 1, "title": "JSON API" },</code>
+            <code class="next">  { relationships: {</code>
+            <code class="next">    <mark>"author": { "id": 1, "name": "Avdeev" } }</mark></code>
+            <code class="next">  }, ...</code>
+            <code class="next">}]}</code>
         </pre>
     </section>
 
@@ -291,41 +466,41 @@ JSON, в котором лежит HTML и XML обернутый в друго�
     <section class="slide">
         <h2>👌 Решение: нормализация данных</h2>
         <pre>
-            <code>HTTP/1.1 200 OK</code>
-            <code>{ "data": [{</code>
-            <code>    "id": "1", <mark>"type": "article"</mark>,</code>
-            <code>    "attributes": { "title": "JSON API" },</code>
-            <code>    "relationships": { ... }</code>
-            <code>  }, ... ]</code>
-            <code>}</code>
+            <code class="next">HTTP/1.1 200 OK</code>
+            <code class="next">{ "data": [{</code>
+            <code class="next">    "id": "1", <mark>"type": "article"</mark>,</code>
+            <code class="next">    "attributes": { "title": "JSON API" },</code>
+            <code class="next">    "relationships": { ... }</code>
+            <code class="next">  }, ... ]</code>
+            <code class="next">}</code>
         </pre>
     </section>
 
     <section class="slide">
         <h2>👌 Решение: нормализация данных</h2>
         <pre>
-            <code>HTTP/1.1 200 OK</code>
-            <code>{ "data": [{</code>
-            <code>    ...</code>
-            <code>    "relationships": {</code>
-            <code>      "author": { "id": 1, <mark>"type": "people"</mark> } }</code>
-            <code>    }</code>
-            <code>  }, ... ]</code>
-            <code>}</code>
+            <code class="next">HTTP/1.1 200 OK</code>
+            <code class="next">{ "data": [{</code>
+            <code class="next">    ...</code>
+            <code class="next">    "relationships": {</code>
+            <code class="next">      "author": { "id": 1, <mark>"type": "people"</mark> } }</code>
+            <code class="next">    }</code>
+            <code class="next">  }, ... ]</code>
+            <code class="next">}</code>
         </pre>
     </section>
 
     <section class="slide">
         <h2>👌 Решение: нормализация данных</h2>
         <pre>
-            <code>HTTP/1.1 200 OK</code>
-            <code>{</code>
-            <code>  "data": [ ... ],</code>
-            <code>  <mark>"included":</mark> [{</code>
-            <code>    "id": 1, "type": "people",</code>
-            <code>    "attributes": { "name": "Avdeev" }</code>
-            <code>  }]</code>
-            <code>}</code>
+            <code class="next">HTTP/1.1 200 OK</code>
+            <code class="next">{</code>
+            <code class="next">  "data": [ ... ],</code>
+            <code class="next">  <mark>"included":</mark> [{</code>
+            <code class="next">    "id": 1, "type": "people",</code>
+            <code class="next">    "attributes": { "name": "Avdeev" }</code>
+            <code class="next">  }]</code>
+            <code class="next">}</code>
         </pre>
     </section>
 
@@ -336,16 +511,16 @@ JSON, в котором лежит HTML и XML обернутый в друго�
     <section class="slide">
         <h2>👌 Решение</h2>
         <pre>
-            <code>GET /articles/1<mark>?fields[articles]=title</mark> HTTP/1.1</code>
+            <code class="next">GET /articles/1<mark>?fields[articles]=title</mark> HTTP/1.1</code>
         </pre>
 
         <pre>
-            <code>HTTP/1.1 200 OK</code>
-            <code>{ "data": [{</code>
-            <code>    "id": "1", "type": "article",</code>
-            <code>    "attributes": { <mark>"title": "Про JSON API"</mark> },</code>
-            <code>  }, ... ]</code>
-            <code>}</code>
+            <code class="next">HTTP/1.1 200 OK</code>
+            <code class="next">{ "data": [{</code>
+            <code class="next">    "id": "1", "type": "article",</code>
+            <code class="next">    "attributes": { <mark>"title": "Про JSON API"</mark> },</code>
+            <code class="next">  }, ... ]</code>
+            <code class="next">}</code>
         </pre>
     </section>
 
@@ -370,6 +545,10 @@ JSON, в котором лежит HTML и XML обернутый в друго�
     </section>
 
     <section class="slide">
+        <img class="place" width="640" src="pictures/jsonapi.png" alt="JSON API">
+    </section>
+
+    <section class="slide">
         <h2>Не упомянул про</h2>
 
         <ol>
@@ -382,167 +561,11 @@ JSON, в котором лежит HTML и XML обернутый в друго�
     </section>
 
     <section class="slide">
-        <h2 class="shout">История</h2>
-    </section>
-
-    <section class="slide">
-        <ol class="place" style="font-size: 3.5em">
-            <li class="next"><b>1981</b> RPC</li>
-            <li class="next"><b>2000</b> REST</li>
-        </ol>
-    </section>
-
-    <section class="slide">
-        <h2 class="shout">RPC</h2>
-    </section>
-
-    <section class="slide">
-        <h2>RPC Пример</h2>
-
-        <ol style="font-size: 2em">
-            <li class="next"><b>Клиент:</b> вызови функцию <i>"hello"</i> с параметром <i>"FrontendConf"</i></li>
-            <li class="next"><b>Сервер:</b> ответ - <i>"Hello FrontendConf!"</i></li>
-        </ol>
-    </section>
-
-    <section class="slide">
-        <h2 class="shout">REST</h2>
-    </section>
-
-    <!-- можно разбить на 6 слайдов -->
-    <section class="slide">
-        <h2>Требования к архитектуре REST</h2>
-        <ol style="font-size: 28px;">
-            <li class="next">Модель клиент-сервер</li>
-            <li class="next">Отсутствие состояния</li>
-            <li class="next">Кэширование</li>
-            <li class="next">Единообразие интерфейса</li>
-            <li class="next">Слои</li>
-            <li class="next">Код по требованию (необязательное ограничение)</li>
-        </ol>
-    </section>
-
-    <section class="slide">
-        <h2>Документация</h2>
-        <div style="font-size: 2em;">
-            <p>Документация? Мой API самодокументируемый.</p>
-        </div>
-    </section>
-
-    <section class="slide">
-        <h2>Форматы URL</h2>>
-        <p>Изменяем данные при помощи GET-запросов</p>
-    </section>
-
-    <section class="slide">
-        <img class="place" width="640" src="pictures/jsonapi.png" alt="JSON API">
-    </section>
-
-    <section class="slide">
-        <img class="place" width="540" src="pictures/1200px-Two-tier_architecture.ru.svg.png" alt="Two-tier architecture">
-    </section>
-
-    <section class="slide clear">
-        <img class="cover" src="pictures/petstore.png" alt="Petstore">
-    </section>
-
-    <section class="slide clear">
-        <img class="cover" src="pictures/swagger.png" alt="JSON API Swagger">
-    </section>
-
-    <section class="slide">
-        <h2>XML-RPC (from 1998)</h2>
-
-        <pre class="next">
-            <code>&lt;?xml version="1.0"?&gt;</code>
-            <code>&lt;methodCall&gt;</code>
-            <code>  &lt;methodName&gt;<mark>examples.getStateName</mark>&lt;/methodName&gt;</code>
-            <code>  &lt;params&gt;</code>
-            <code>    &lt;param&gt;<mark>&lt;value&gt;&lt;i4&gt;40&lt;/i4&gt;&lt;/value&gt;</mark>&lt;/param&gt;</code>
-            <code>  &lt;/params&gt;</code>
-            <code>&lt;/methodCall&gt;</code>
-        </pre>
-    </section>
-
-    <section class="slide">
-        <h2>Simple Object Access Protocol (SOAP) (2007)</h2>
-
-        <pre class="next">
-            <code>&lt;soap:Envelope xmlns:soap=&quot;http://schemas.xmlsoap.org/...</code>
-            <code>   &lt;soap:Body&gt;</code>
-            <code>     &lt;<mark>getProductDetails</mark> xmlns=&quot;http://warehouse.example...</code>
-            <code>       <mark>&lt;productID&gt;12345&lt;/productID&gt;</mark></code>
-            <code>     &lt;/getProductDetails&gt;</code>
-            <code>   &lt;/soap:Body&gt;</code>
-            <code>&lt;/soap:Envelope&gt;</code>
-        </pre>
-    </section>
-
-    <section class="slide">
-        <h2>JSON-RPC (2013)</h2>
-
-        <pre class="next">
-            <code>{</code>
-            <code> "jsonrpc": "2.0", "method": <mark>"subtract"</mark>,</code>
-            <code> "params": <mark>[42, 23]</mark>, "id": 1</code>
-            <code>}</code>
-        </pre>
-
-        <pre class="next">
-            <code>{"jsonrpc": "2.0", "result": <mark>19</mark>, "id": 1}</code>
-        </pre>
-    </section>
-
-    <section class="slide">
-        <h2>GraphQL (2016)</h2>
-
-        <pre class="next">
-            <code><mark>POST /graphql</mark> HTTP/1.1</code>
-            <code>Content-Type: application/json</code>
-            <code>{</code>
-            <code>  "query": "...",</code>
-            <code>  "operationName": "...",</code>
-            <code>  "variables": { "myVariable": "someValue", ... }</code>
-            <code>}</code>
-        </pre>
-    </section>
-
-    <section class="slide">
-        <h2>OData (2015)</h2>
-
-        <pre class="next">
-            <code>GET http://services.odata.org/v4/TripPinServiceRW/People HTTP/1.1</code>
-            <code>OData-Version: 4.0</code>
-            <code>OData-MaxVersion: 4.0</code>
-        </pre>
-    </section>
-
-    <section class="slide">
-        <h2>OData (2015)</h2>
-
-        <pre style="font-size: 0.6em;">
-            <code>HTTP/1.1 200 OK</code>
-            <code>Content-Type: application/json; odata.metadata=minimal</code>
-            <code>OData-Version: 4.0</code>
-            <code>{</code>
-            <code>  '@odata.context': 'http://services.odata.org/V4/...</code>
-            <code>  '@odata.nextLink': 'http://services.odata.org/V4/...</code>
-            <code>  'value': [{</code>
-            <code>    '@odata.id': 'http://services.odata.org/V4/...</code>
-            <code>    '@odata.etag': 'W/'08D1D5BD423E5158'',</code>
-            <code>    '@odata.editLink': 'http://services.odata.org/V4/...</code>
-            <code>    'UserName': 'russellwhyte',</code>
-            <code>    ...</code>
-        </pre>
-    </section>
-
-
-    <section class="slide">
         <h2>JSON API (2015)</h2>
 
-        <pre class="next">
-            <code>GET /articles HTTP/1.1</code>
-            <code>Accept: <mark>application/vnd.api+json</mark></code>
+        <pre>
+            <code class="next">GET /articles HTTP/1.1</code>
+            <code class="next">Accept: <mark>application/vnd.api+json</mark></code>
         </pre>
     </section>
 
@@ -550,17 +573,17 @@ JSON, в котором лежит HTML и XML обернутый в друго�
         <h2>JSON API (2015)</h2>
 
         <pre style="font-size: 0.7em;">
-            <code>HTTP/1.1 200 OK</code>
-            <code>Content-Type: <mark>application/vnd.api+json</mark></code>
-            <code>{</code>
-            <code>  "links": { "self": "http://example.com/articles },</code>
-            <code>  "data": [{</code>
-            <code>    "type": "articles", "id": "1",</code>
-            <code>    "attributes": {</code>
-            <code>      "title": "JSON API paints my bikeshed!"</code>
-            <code>    }</code>
-            <code>  }]</code>
-            <code>}</code>
+            <code class="next">HTTP/1.1 200 OK</code>
+            <code class="next">Content-Type: <mark>application/vnd.api+json</mark></code>
+            <code class="next">{</code>
+            <code class="next">  "links": { "self": "http://example.com/articles },</code>
+            <code class="next">  "data": [{</code>
+            <code class="next">    "type": "articles", "id": "1",</code>
+            <code class="next">    "attributes": {</code>
+            <code class="next">      "title": "JSON API paints my bikeshed!"</code>
+            <code class="next">    }</code>
+            <code class="next">  }]</code>
+            <code class="next">}</code>
         </pre>
     </section>
 
@@ -616,6 +639,55 @@ JSON, в котором лежит HTML и XML обернутый в друго�
     </section>
 
     <section class="slide">
+        <h2 class="shout">OpenAPI здорового человека</h2>
+    </section>
+
+    <section class="slide clear">
+        <img class="cover" src="pictures/petstore.png" alt="Petstore">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">OpenAPI для<br>JSON API</h2>
+    </section>
+
+    <section class="slide clear">
+        <img class="cover" src="pictures/swagger.png" alt="JSON API Swagger">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">OData (2015)</h2>
+    </section>
+
+    <section class="slide">
+        <h2>OData (2015)</h2>
+
+        <pre>
+            <code class="next">GET http://services.odata.org/v4/TripRW/People HTTP/1.1</code>
+            <code class="next">OData-Version: 4.0</code>
+            <code class="next">OData-MaxVersion: 4.0</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>OData (2015)</h2>
+
+        <pre style="font-size: 0.55em;">
+            <code class="next">HTTP/1.1 200 OK</code>
+            <code class="next">Content-Type: application/json; odata.metadata=minimal</code>
+            <code class="next">OData-Version: 4.0</code>
+            <code class="next">{</code>
+            <code class="next">  '@odata.context': 'http://services.odata.org/V4/...</code>
+            <code class="next">  '@odata.nextLink': 'http://services.odata.org/V4/...</code>
+            <code class="next">  'value': [{</code>
+            <code class="next">    '@odata.id': 'http://services.odata.org/V4/...</code>
+            <code class="next">    '@odata.etag': 'W/'08D1D5BD423E5158'',</code>
+            <code class="next">    '@odata.editLink': 'http://services.odata.org/V4/...</code>
+            <code class="next">    'UserName': 'russellwhyte',</code>
+            <code class="next">    ...</code>
+        </pre>
+    </section>
+
+    <section class="slide">
         <h2 class="shout">Что с GraphQL?</h2>
     </section>
 
@@ -626,7 +698,7 @@ JSON, в котором лежит HTML и XML обернутый в друго�
 
     <section class="slide">
         <h2>💥 Эффект большого взрыва</h2>
-        <ol style="font-size: 45px">
+        <ol style="font-size: 1.5em">
             <li class="next">Нет никакого API</li>
             <li class="next">💥</li>
             <li class="next">GraphQL</li>
@@ -635,7 +707,7 @@ JSON, в котором лежит HTML и XML обернутый в друго�
 
     <section class="slide">
         <h2>Или</h2>
-        <ol style="font-size: 45px">
+        <ol style="font-size: 1.5em">
             <li class="next">🦎 Простейший RESTful</li>
             <li class="next">🐊 Прогрессивное улучшение</li>
             <li class="next">🦖 JSON API</li>
@@ -644,21 +716,22 @@ JSON, в котором лежит HTML и XML обернутый в друго�
 
     <section class="slide">
         <h2>🤯 Ад на бекенде</h2>
-        <ol style="font-size: 30px">
+        <ol style="font-size: 1.5em">
             <li class="next">Контроль вложенности</li>
             <li class="next">Рекурсия</li>
-            <li class="next">Rate limiting</li>
-            <li class="next">Security</li>
-            <li class="next">Access Control</li>
+            <li class="next">Ограничение частоты</li>
+            <li class="next">Контроль доступа</li>
         </ol>
     </section>
 
     <section class="slide">
         <h2>За подробностями</h2>
-        <ol style="font-size: 40px;">
-            <li><a href="http://jsonapi.org/" target="_blank">http://jsonapi.org/</a></li>
-            <li><a href="http://www.odata.org/" target="_blank">http://www.odata.org/</a></li>
-            <li><a href="https://graphql.org/" target="_blank">https://graphql.org/</a></li>
+        <ol>
+            <li><a href="http://jsonapi.org" target="_blank">http://jsonapi.org</a></li>
+            <li><a href="http://www.odata.org" target="_blank">http://www.odata.org</a></li>
+            <li><a href="https://graphql.org" target="_blank">https://graphql.org</a></li>
+            <li><a href="http://xmlrpc.scripting.com" target="_blank">http://xmlrpc.scripting.com</a></li>
+            <li><a href="https://www.jsonrpc.org" target="_blank">https://www.jsonrpc.org</a></li>
         </ol>
     </section>
 
