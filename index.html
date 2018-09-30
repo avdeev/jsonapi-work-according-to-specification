@@ -242,19 +242,6 @@
     </section>
 
     <section class="slide">
-        <h2>Форматы URL</h2>
-
-        <figure class="place next">
-            <blockquote>
-                <p>
-                    - Изменяем данные при помощи GET-запросов
-                </p>
-            </blockquote>
-            <figcaption>Начинающий бекендер</figcaption>
-        </figure>
-    </section>
-
-    <section class="slide">
         <h2>Полезная нагрузка</h2>
 
         <figure class="place next">
@@ -549,10 +536,102 @@
     </section>
 
     <section class="slide">
+        <h2>Единообразие интерфейса</h2>
+
+        <figure class="place next">
+            <blockquote>
+                <p>
+                    - Изменяем данные при помощи GET-запросов
+                </p>
+            </blockquote>
+            <figcaption>Начинающий бекендер</figcaption>
+        </figure>
+    </section>
+
+    <section class="slide">
+        <h2>👌 Получить коллекцию статей</h2>
+
+        <div class="place" style="font-size: 1.2em;">
+            <pre class="next">
+                <code>GET  <mark>/articles</mark> HTTP/1.1</code>
+                <code>Accept: application/vnd.api+json</code>
+            </pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>👌 Получить статью</h2>
+
+        <div class="place" style="font-size: 1.2em;">
+            <pre class="next">
+                <code>GET <mark>/articles/1</mark> HTTP/1.1</code>
+                <code>Accept: application/vnd.api+json</code>
+            </pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>👌 Получить автора статьи</h2>
+
+        <div class="place" style="font-size: 1.2em;">
+            <pre class="next">
+                <code>GET <mark>/articles/1/author</mark> HTTP/1.1</code>
+                <code>Accept: application/vnd.api+json</code>
+            </pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>👌 Получить ссылку на автора статьи</h2>
+
+        <div class="place" style="font-size: 1.2em;">
+            <pre class="next">
+                <code>GET <mark>/articles/1/relationships/author</mark> HTTP/1.1</code>
+                <code>Accept: application/vnd.api+json</code>
+            </pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>👌 Создать новую фотографию</h2>
+
+        <div class="place" style="font-size: 1.2em;">
+            <pre class="next">
+                <code>POST <mark>/photos</mark> HTTP/1.1</code>
+                <code>Content-Type: application/vnd.api+json</code>
+                <code>Accept: application/vnd.api+json</code>
+            </pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>👌 Обновить статью</h2>
+
+        <div class="place" style="font-size: 1.2em;">
+            <pre class="next">
+                <code>PATCH <mark>/articles/1</mark> HTTP/1.1</code>
+                <code>Content-Type: application/vnd.api+json</code>
+                <code>Accept: application/vnd.api+json</code>
+            </pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>👌 Обновить ссылку на автора статьи</h2>
+
+        <div class="place" style="font-size: 1.2em;">
+            <pre class="next">
+                <code>PATCH <mark>/articles/1/relationships/author</mark> HTTP/1.1</code>
+                <code>Content-Type: application/vnd.api+json</code>
+                <code>Accept: application/vnd.api+json</code>
+            </pre>
+        </div>
+    </section>
+
+    <section class="slide">
         <h2>Не упомянул про</h2>
 
         <ol>
-            <li class="next">Формат роутов</li>
             <li class="next">Гипермедиа (links)</li>
             <li class="next">Фильтрация (filters)</li>
             <li class="next">Сортировка</li>
