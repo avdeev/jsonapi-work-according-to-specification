@@ -16,6 +16,7 @@
         }
 
         .slide {
+            padding-top: 51px;
             background: #fff url(pictures/fcconf_bg.png) no-repeat;
             background-size: cover;
         }
@@ -166,11 +167,11 @@
     <!-- можно разбить на 6 слайдов -->
     <section class="slide">
         <h2>Требования к архитектуре REST</h2>
-        <ol style="font-size: 28px;">
+        <ol style="font-size: 1em;">
             <li class="next">Модель клиент-сервер</li>
             <li class="next">Отсутствие состояния</li>
             <li class="next">Кэширование</li>
-            <li class="next">Единообразие интерфейса</li>
+            <li class="next"><b>Единообразие интерфейса</b></li>
             <li class="next">Слои</li>
             <li class="next">Код по требованию (необязательное ограничение)</li>
         </ol>
@@ -189,7 +190,23 @@
     </section>
 
     <section class="slide">
-        <h2 class="shout">RESTful</h2>
+        <h2 class="shout">RESTful блог</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">CRUD</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Единообразный интерфейс</h2>
+
+        <ol style="font-size: 1.2em;">
+            <li class="next">Создать статью</li>
+            <li class="next">Получить список статей</li>
+            <li class="next">Получить статью</li>
+            <li class="next">Обновить статью</li>
+            <li class="next">Удалить статью</li>
+        </ol>
     </section>
 
     <section class="slide">
@@ -229,12 +246,47 @@
     </section>
 
     <section class="slide">
-        <h2>Документация</h2>
+        <h2 class="shout">Content-Type, Accept</h2>
+    </section>
 
-        <figure class="place">
+    <section class="slide">
+        <h2>Ошибка</h2>
+        <pre>
+            <code class="next"><mark>DELETE /articles/1</mark> HTTP/1.1</code>
+            <code class="next">Accept: <mark>application/json</mark></code>
+        </pre>
+        <pre>
+            <code class="next">HTTP/1.1 200 OK</code>
+            <code class="next">Content-Type: <mark>application/json</mark></code>
+            <code class="next"></code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <img class="place" src="pictures/mime.jpg" alt="mime types">
+    </section>
+
+    <section class="slide">
+        <h2>MIME-типы</h2>
+        <ul>
+            <li class="next">text/plain</li>
+            <li class="next">application/octet-stream</li>
+            <li class="next">application/pdf</li>
+            <li class="next">image/png</li>
+            <li class="next">application/json</li>
+            <li class="next">application/xml</li>
+            <li class="next">application/vnd.ms-excel</li>
+        </ul>
+    </section>
+
+<!--
+    <section class="slide">
+        <h2>Единообразие интерфейса</h2>
+
+        <figure class="next" style="font-size: 1.5em;">
             <blockquote>
                 <p>
-                    - Документация? Мой API самодокументируемый.
+                    - Изменяем данные при помощи GET-запросов
                 </p>
             </blockquote>
             <figcaption>Начинающий бекендер</figcaption>
@@ -242,12 +294,103 @@
     </section>
 
     <section class="slide">
-        <h2>Форматы URL</h2>
+        <h2>👌 Получить коллекцию статей</h2>
 
-        <figure class="place next">
+        <div style="font-size: 1.2em;">
+            <pre class="next">
+                <code>GET  <mark>/articles</mark> HTTP/1.1</code>
+                <code>Accept: application/vnd.api+json</code>
+            </pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>👌 Получить статью</h2>
+
+        <div style="font-size: 1.2em;">
+            <pre class="next">
+                <code>GET <mark>/articles/1</mark> HTTP/1.1</code>
+                <code>Accept: application/vnd.api+json</code>
+            </pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>👌 Получить автора статьи</h2>
+
+        <div style="font-size: 1.2em;">
+            <pre class="next">
+                <code>GET <mark>/articles/1/author</mark> HTTP/1.1</code>
+                <code>Accept: application/vnd.api+json</code>
+            </pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>👌 Получить ссылку на автора статьи</h2>
+
+        <div style="font-size: 1.2em;">
+            <pre class="next">
+                <code>GET <mark>/articles/1/relationships/author</mark> HTTP/1.1</code>
+                <code>Accept: application/vnd.api+json</code>
+            </pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>👌 Создать новую фотографию</h2>
+
+        <div style="font-size: 1.2em;">
+            <pre class="next">
+                <code>POST <mark>/photos</mark> HTTP/1.1</code>
+                <code>Content-Type: application/vnd.api+json</code>
+                <code>Accept: application/vnd.api+json</code>
+            </pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>👌 Обновить статью</h2>
+
+        <div style="font-size: 1.2em;">
+            <pre class="next">
+                <code>PATCH <mark>/articles/1</mark> HTTP/1.1</code>
+                <code>Content-Type: application/vnd.api+json</code>
+                <code>Accept: application/vnd.api+json</code>
+            </pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>👌 Обновить ссылку на автора статьи</h2>
+
+        <div style="font-size: 1.2em;">
+            <pre class="next">
+                <code>PATCH <mark>/articles/1/relationships/author</mark> HTTP/1.1</code>
+                <code>Content-Type: application/vnd.api+json</code>
+                <code>Accept: application/vnd.api+json</code>
+            </pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>👌 Удалить фотографию</h2>
+
+        <div style="font-size: 1.2em;">
+            <pre class="next">
+                <code>DELETE <mark>/photos/1</mark> HTTP/1.1</code>
+                <code>Accept: application/vnd.api+json</code>
+            </pre>
+        </div>
+    </section> -->
+
+    <section class="slide">
+        <h2>Документация</h2>
+
+        <figure class="place">
             <blockquote>
                 <p>
-                    - Изменяем данные при помощи GET-запросов
+                    - Документация? Мой API самодокументируемый.
                 </p>
             </blockquote>
             <figcaption>Начинающий бекендер</figcaption>
@@ -410,7 +553,7 @@
     <section class="slide">
         <h2>👌 Или так</h2>
         <pre>
-            <code class="next">GET /articles?<mark>page[cursor]=250126199840518145</mark></code>
+            <code class="next">GET /articles?<mark>page[published_at]=1538332156</mark></code>
             <code class="next">Content-Type: application/json</code>
         </pre>
         <pre>
@@ -536,7 +679,11 @@
                     <div>MIME subtype name : Vendor Tree - vnd.api+json</div>
                 </p>
             </blockquote>
-            <figcaption><a href="http://www.iana.org/assignments/media-types/application/vnd.api+json" target="_blank">http://www.iana.org/assignments/media-types/application/vnd.api+json</a></figcaption>
+            <figcaption>
+                <a href="http://www.iana.org/assignments/media-types/application/vnd.api+json" target="_blank">
+                    http://www.iana.org/assignments/media-types/application/vnd.api+json
+                </a>
+            </figcaption>
         </figure>
     </section>
 
@@ -552,7 +699,6 @@
         <h2>Не упомянул про</h2>
 
         <ol>
-            <li class="next">Формат роутов</li>
             <li class="next">Гипермедиа (links)</li>
             <li class="next">Фильтрация (filters)</li>
             <li class="next">Сортировка</li>
