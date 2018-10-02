@@ -77,8 +77,7 @@
         </ol>
     </section>
 
-    <!-- какие бывают стили построения API (RPC vs REST vs GraphQL) -->
-
+    <!-- начинаем с проблемы -->
     <section class="slide clear">
         <img class="cover w" src="pictures/bellefonte-nuclear-power-plant.jpg" alt="bellefonte-nuclear-power-plant">
         <h2 class="shout" style="color: #fff; font-size: 3em; text-shadow: 4px 4px 0 rgba(0, 0, 0, 1);">
@@ -103,6 +102,7 @@
         <h2 class="shout">Anti-bikeshedding tool</h2>
     </section>
 
+    <!-- немного теории про виды API -->
     <section class="slide">
         <h2 class="shout">История</h2>
     </section>
@@ -300,11 +300,28 @@
     </section>
 
     <section class="slide">
-        <div style="text-align: center; font-size: 160px;">🤦‍</div>
+        <h2 class="shout">Коды ответов</h2>
     </section>
 
     <section class="slide">
-        <h2>Создание</h2>
+        <img class="place" width="600" src="pictures/200-OK-600x480.jpg" alt="200 OK Cat">
+    </section>
+
+    <section class="slide">
+        <h2>Создание сущности</h2>
+
+        <ul>
+            <li class="next">201 Created</li>
+            <li class="next">202 Accepted</li>
+            <li class="next">204 No Content</li>
+            <li class="next">403 Forbidden</li>
+            <li class="next">404 Not Found</li>
+            <li class="next">409 Conflict</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Создание сущности</h2>
         <pre>
             <code class="next">POST /articles HTTP/1.1</code>
             <code class="next">Content-Type: application/json</code>
@@ -552,33 +569,6 @@
     </section>
 
     <section class="slide">
-        <h2 class="shout">Гипермедиа</h2>
-    </section>
-
-    <section class="slide">
-        <h2>👌 Решение</h2>
-
-        <pre>
-            <code>"links": {</code>
-            <code>    "self": "http://example.com/posts"</code>
-            <code>}</code>
-        </pre>
-    </section>
-
-    <section class="slide">
-        <h2>👌 Решение</h2>
-
-        <pre>
-            <code>"links": {</code>
-            <code>  "related": {</code>
-            <code>    "href": "http://example.com/articles/1/comments",</code>
-            <code>    "meta": { "count": 10 }</code>
-            <code>  }</code>
-            <code>}</code>
-        </pre>
-    </section>
-
-    <section class="slide">
         <h2>👌 Решение</h2>
 
         <pre class="next">
@@ -599,28 +589,43 @@
     </section>
 
     <section class="slide">
-        <h2 class="shout">Коды ответов</h2>
+        <h2 class="shout">Гипермедиа</h2>
     </section>
 
     <section class="slide">
-        <img class="place" width="640" src="pictures/200-OK-600x480.jpg" alt="200 OK Cat">
+        <h2>👌 Решение</h2>
+
+        <pre style="font-size: 0.8em;">
+            <code>GET /articles HTTP/1.1</code>
+            <code>{</code>
+            <code>  "data": [{</code>
+            <code>      ...</code>
+            <code>      <mark>"links": { "self": "/articles/1" },</mark></code>
+            <code>      "relationships": { ... }</code>
+            <code>  }],</code>
+            <code>  <mark>"links": { "self": "/articles" }</mark></code>
+            <code>}</code>
+        </pre>
     </section>
 
     <section class="slide">
-        <h2>Создание сущности</h2>
+        <h2>👌 Решение</h2>
 
-        <ul>
-            <li class="next">201 Created</li>
-            <li class="next">202 Accepted</li>
-            <li class="next">204 No Content</li>
-            <li class="next">403 Forbidden</li>
-            <li class="next">404 Not Found</li>
-            <li class="next">409 Conflict</li>
-        </ul>
+        <pre style="font-size: 0.8em;">
+            <code>  ...</code>
+            <code>  "relationships": {</code>
+            <code>    "comments": {</code>
+            <code>      "links": {</code>
+            <code>        <mark>"self": "/articles/1/relationships/comments",</mark></code>
+            <code>        <mark>"related": "/articles/1/comments"</mark></code>
+            <code>      }</code>
+            <code>    }</code>
+            <code>  }</code>
+        </pre>
     </section>
 
     <section class="slide">
-        <h2>Оформим и зарегистрируем Media Type</h2>
+        <h2>Новый Media Type</h2>
         <figure>
             <blockquote>
                 <p>
@@ -642,139 +647,6 @@
     <section class="slide">
         <img class="place" width="640" src="pictures/jsonapi.png" alt="JSON API">
     </section>
-
-    <section class="slide">
-        <h2>JSON API (2015)</h2>
-
-        <pre>
-            <code class="next">GET /articles HTTP/1.1</code>
-            <code class="next">Accept: <mark>application/vnd.api+json</mark></code>
-        </pre>
-    </section>
-
-    <section class="slide">
-        <h2>JSON API (2015)</h2>
-
-        <pre style="font-size: 0.7em;">
-            <code class="next">HTTP/1.1 200 OK</code>
-            <code class="next">Content-Type: <mark>application/vnd.api+json</mark></code>
-            <code class="next">{</code>
-            <code class="next">  "links": { "self": "http://example.com/articles },</code>
-            <code class="next">  "data": [{</code>
-            <code class="next">    "type": "articles", "id": "1",</code>
-            <code class="next">    "attributes": {</code>
-            <code class="next">      "title": "JSON API paints my bikeshed!"</code>
-            <code class="next">    }</code>
-            <code class="next">  }]</code>
-            <code class="next">}</code>
-        </pre>
-    </section>
-
-    <section class="slide">
-        <h2>Единообразие интерфейса</h2>
-
-        <figure class="next">
-            <blockquote>
-                <p>
-                    - Изменяем данные при помощи GET-запросов
-                </p>
-            </blockquote>
-            <figcaption>Начинающий бэкендер</figcaption>
-        </figure>
-    </section>
-
-    <section class="slide">
-        <h2>👌 Получить коллекцию статей</h2>
-
-        <div style="font-size: 1.2em;">
-            <pre class="next">
-                <code>GET  <mark>/articles</mark> HTTP/1.1</code>
-                <code>Accept: application/vnd.api+json</code>
-            </pre>
-        </div>
-    </section>
-
-    <section class="slide">
-        <h2>👌 Получить статью</h2>
-
-        <div style="font-size: 1.2em;">
-            <pre class="next">
-                <code>GET <mark>/articles/1</mark> HTTP/1.1</code>
-                <code>Accept: application/vnd.api+json</code>
-            </pre>
-        </div>
-    </section>
-
-    <section class="slide">
-        <h2>👌 Получить автора статьи</h2>
-
-        <div style="font-size: 1.2em;">
-            <pre class="next">
-                <code>GET <mark>/articles/1/author</mark> HTTP/1.1</code>
-                <code>Accept: application/vnd.api+json</code>
-            </pre>
-        </div>
-    </section>
-
-    <section class="slide">
-        <h2>👌 Получить ссылку на автора статьи</h2>
-
-        <div style="font-size: 1.2em;">
-            <pre class="next">
-                <code>GET <mark>/articles/1/relationships/author</mark> HTTP/1.1</code>
-                <code>Accept: application/vnd.api+json</code>
-            </pre>
-        </div>
-    </section>
-
-    <section class="slide">
-        <h2>👌 Создать новую фотографию</h2>
-
-        <div style="font-size: 1.2em;">
-            <pre class="next">
-                <code>POST <mark>/photos</mark> HTTP/1.1</code>
-                <code>Content-Type: application/vnd.api+json</code>
-                <code>Accept: application/vnd.api+json</code>
-            </pre>
-        </div>
-    </section>
-
-    <section class="slide">
-        <h2>👌 Обновить статью</h2>
-
-        <div style="font-size: 1.2em;">
-            <pre class="next">
-                <code>PATCH <mark>/articles/1</mark> HTTP/1.1</code>
-                <code>Content-Type: application/vnd.api+json</code>
-                <code>Accept: application/vnd.api+json</code>
-            </pre>
-        </div>
-    </section>
-
-    <section class="slide">
-        <h2>👌 Обновить ссылку на автора статьи</h2>
-
-        <div style="font-size: 1.2em;">
-            <pre class="next">
-                <code>PATCH <mark>/articles/1/relationships/author</mark> HTTP/1.1</code>
-                <code>Content-Type: application/vnd.api+json</code>
-                <code>Accept: application/vnd.api+json</code>
-            </pre>
-        </div>
-    </section>
-
-    <section class="slide">
-        <h2>👌 Удалить фотографию</h2>
-
-        <div style="font-size: 1.2em;">
-            <pre class="next">
-                <code>DELETE <mark>/photos/1</mark> HTTP/1.1</code>
-                <code>Accept: application/vnd.api+json</code>
-            </pre>
-        </div>
-    </section>
-
-    <!-- начинаем разрабатывать RESTful -->
 
     <section class="slide">
         <h2>Экосистема JSON API</h2>
@@ -815,26 +687,90 @@
     </section>
 
     <section class="slide">
-        <h2>Подводные камни JSON API</h2>
-
-        <ol style="font-size: 30px;">
-            <li class="next">Количество relationships в выдаче неограничено</li>
-            <li class="next">Сложно работать с полиморфными связями</li>
-            <li class="next">Одно и то же можно запросить по-разному (неоднозначность)</li>
-            <li class="next">Сложно писать Swagger (OpenAPI)</li>
-        </ol>
+        <h2 class="shout">Подводные <br>камни JSON API</h2>
     </section>
 
     <section class="slide">
-        <h2 class="shout">Swagger здорового человека</h2>
+        <h2>🤔 Количество relationships в выдаче неограничено</h2>
+
+        <pre style="font-size: 0.8em;">
+            <code>GET /articles/1?include=comments HTTP/1.1</code>
+        </pre>
+        <pre style="font-size: 0.8em;" class="next">
+            <code>  ...</code>
+            <code>  "relationships": {</code>
+            <code>    "comments": {</code>
+            <code>      "data": <mark>[0 ... &infin;]</mark></code>
+            <code>    }</code>
+            <code>  }</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>☝️ Правильно</h2>
+
+        <pre style="font-size: 0.8em;">
+            <code>GET /comments?<mark>filters[article]=1</mark>&page[size]=30 HTTP/1.1</code>
+        </pre>
+        <pre style="font-size: 0.8em;" class="next">
+            <code>{</code>
+            <code>  "data": <mark>[0 ... 29]</mark></code>
+            <code>}</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>Неоднозначность</h2>
+
+        <pre style="font-size: 1em;" class="next">
+            <code>GET /articles/1?include=comments HTTP/1.1</code>
+        </pre>
+
+        <pre style="font-size: 1em;" class="next">
+            <code>GET /articles/1/comments HTTP/1.1</code>
+        </pre>
+
+        <pre style="font-size: 1em;" class="next">
+            <code>GET /comments?filters[article]=1 HTTP/1.1</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>🤔 Полиморфные связи "один ко многим"</h2>
+
+        <pre style="font-size: 0.8em;">
+            <code>GET /comments?include=commentable HTTP/1.1</code>
+            <code> </code>
+            <code>  ...</code>
+            <code>  "relationships": {</code>
+            <code>    <mark>"commentable"</mark>: {</code>
+            <code>      "data": { "type": "article", "id": "1" }</code>
+            <code>    }</code>
+            <code>  }</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>🤔 Сложные связи "многие ко многим"</h2>
+
+        <pre style="font-size: 0.8em;">
+            <code>GET /users?include=<mark>users_comments</mark> HTTP/1.1</code>
+            <code> </code>
+            <code>  ...</code>
+            <code>  "relationships": {</code>
+            <code>    "users_comments": {</code>
+            <code>      "data": [{ "type": "users_comments", "id": "1" }, ...]</code>
+            <code>    },</code>
+            <code>  }</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Swagger</h2>
     </section>
 
     <section class="slide clear">
         <img class="cover" src="pictures/petstore.png" alt="Petstore">
-    </section>
-
-    <section class="slide">
-        <h2 class="shout">Swagger для<br>JSON API</h2>
     </section>
 
     <section class="slide clear">
@@ -862,7 +798,7 @@
     <section class="slide">
         <h2>OData (2015)</h2>
 
-        <pre style="font-size: 0.55em;">
+        <pre style="font-size: 0.6em;">
             <code class="next">HTTP/1.1 200 OK</code>
             <code class="next">Content-Type: application/json; odata.metadata=minimal</code>
             <code class="next">OData-Version: 4.0</code>
