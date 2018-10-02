@@ -79,6 +79,30 @@
 
     <!-- какие бывают стили построения API (RPC vs REST vs GraphQL) -->
 
+    <section class="slide clear">
+        <img class="cover w" src="pictures/bellefonte-nuclear-power-plant.jpg" alt="bellefonte-nuclear-power-plant">
+        <h2 class="shout" style="color: #fff; font-size: 3em; text-shadow: 4px 4px 0 rgba(0, 0, 0, 1);">
+            Эффект велосипедного сарая
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2>Что важно?</h2>
+
+        <ul class="place" style="font-size: 1.8em">
+            <li class="next">Формат API</li>
+            <li class="next">Ваше приложение</li>
+        </ul>
+    </section>
+
+    <section class="slide clear" style="background-color: #c30400;">
+        <img class="cover h" src="pictures/4df7ea9931f24719762911e4af849a09.png" alt="bike-shedding">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Anti-bikeshedding tool</h2>
+    </section>
+
     <section class="slide">
         <h2 class="shout">История</h2>
     </section>
@@ -178,19 +202,7 @@
     </section>
 
     <section class="slide">
-        <img class="place" width="540" src="pictures/1200px-Two-tier_architecture.ru.svg.png" alt="Two-tier architecture">
-    </section>
-
-    <section class="slide">
         <h2 class="shout">Начинаем проектировать</h2>
-    </section>
-
-    <section class="slide">
-        <h2 class="shout">Anti-bikeshedding tool</h2>
-    </section>
-
-    <section class="slide clear" style="background-color: #c30400;">
-        <img class="cover h" src="pictures/4df7ea9931f24719762911e4af849a09.png" alt="bike-shedding">
     </section>
 
     <section class="slide clear">
@@ -258,7 +270,7 @@
     </section>
 
     <section class="slide">
-        <h2>Content-Type, Accept</h2>
+        <h2>💔 Content-Type, Accept</h2>
         <pre>
             <code class="next"><mark>DELETE /articles/1</mark> HTTP/1.1</code>
             <code class="next">Accept: <mark>application/json</mark></code>
@@ -539,7 +551,73 @@
         </pre>
     </section>
 
+    <section class="slide">
+        <h2 class="shout">Гипермедиа</h2>
+    </section>
 
+    <section class="slide">
+        <h2>👌 Решение</h2>
+
+        <pre>
+            <code>"links": {</code>
+            <code>    "self": "http://example.com/posts"</code>
+            <code>}</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>👌 Решение</h2>
+
+        <pre>
+            <code>"links": {</code>
+            <code>  "related": {</code>
+            <code>    "href": "http://example.com/articles/1/comments",</code>
+            <code>    "meta": { "count": 10 }</code>
+            <code>  }</code>
+            <code>}</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>👌 Решение</h2>
+
+        <pre class="next">
+            <code>GET /articles/1<mark>?sort=title</mark> HTTP/1.1</code>
+        </pre>
+
+        <pre class="next">
+            <code>GET /articles/1<mark>?sort=published_at</mark> HTTP/1.1</code>
+        </pre>
+
+        <pre class="next">
+            <code>GET /articles/1<mark>?sort=-published_at</mark> HTTP/1.1</code>
+        </pre>
+
+        <pre class="next">
+            <code>GET /articles/1<mark>?sort=author,-published_at</mark> HTTP/1.1</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Коды ответов</h2>
+    </section>
+
+    <section class="slide">
+        <img class="place" width="640" src="pictures/200-OK-600x480.jpg" alt="200 OK Cat">
+    </section>
+
+    <section class="slide">
+        <h2>Создание сущности</h2>
+
+        <ul>
+            <li class="next">201 Created</li>
+            <li class="next">202 Accepted</li>
+            <li class="next">204 No Content</li>
+            <li class="next">403 Forbidden</li>
+            <li class="next">404 Not Found</li>
+            <li class="next">409 Conflict</li>
+        </ul>
+    </section>
 
     <section class="slide">
         <h2>Оформим и зарегистрируем Media Type</h2>
@@ -562,20 +640,7 @@
     </section>
 
     <section class="slide">
-        <h2 class="shout"> 🍳 JSON API готов</h2>
-    </section>
-
-    <section class="slide">
         <img class="place" width="640" src="pictures/jsonapi.png" alt="JSON API">
-    </section>
-
-    <section class="slide">
-        <h2>Не упомянул про</h2>
-
-        <ol>
-            <li class="next">Гипермедиа (links)</li>
-            <li class="next">Коды ответов</li>
-        </ol>
     </section>
 
     <section class="slide">
@@ -785,7 +850,7 @@
     </section>
 
     <section class="slide">
-        <h2>OData (2015)</h2>
+        <h2>OData (2015) - the best way to REST</h2>
 
         <pre>
             <code class="next">GET http://services.odata.org/v4/TripRW/People HTTP/1.1</code>
