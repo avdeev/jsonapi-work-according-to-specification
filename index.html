@@ -79,113 +79,83 @@
 
     <!-- начинаем с проблемы -->
     <section class="slide clear">
-        <img class="cover w" src="pictures/bellefonte-nuclear-power-plant.jpg" alt="bellefonte-nuclear-power-plant">
+        <img class="cover w" src="pictures/Siril-Parkinson.jpg" alt="bellefonte-nuclear-power-plant">
         <h2 class="shout" style="color: #fff; font-size: 3em; text-shadow: 4px 4px 0 rgba(0, 0, 0, 1);">
-            Эффект велосипедного сарая
+            Закон тривиальности Паркинсона
         </h2>
     </section>
 
     <section class="slide">
-        <h2>Что важно?</h2>
-
-        <ul class="place" style="font-size: 1.8em">
-            <li class="next">Формат API</li>
-            <li class="next">Ваше приложение</li>
-        </ul>
+        <h2 class="shout" style="font-size: 3em; padding: 0 40px; width: calc(100% - 80px);">
+            Время, потраченное на обсуждение пункта, обратно пропорционально рассматриваемой сумме
+        </h2>
     </section>
 
-    <section class="slide clear" style="background-color: #c30400;">
-        <img class="cover h" src="pictures/4df7ea9931f24719762911e4af849a09.png" alt="bike-shedding">
+    <section class="slide clear">
+        <img class="cover w" src="pictures/bellefonte-nuclear-power-plant.jpg" alt="bellefonte-nuclear-power-plant">
+        <h2 class="shout" style="color: #fff; font-size: 3em; text-shadow: 4px 4px 0 rgba(0, 0, 0, 1);">
+            The Bikeshed Effect
+        </h2>
     </section>
 
     <section class="slide">
-        <h2 class="shout">Anti-bikeshedding tool</h2>
+        <h2>sleep(1)</h2>
+
+        <figure>
+          <blockquote>
+            <p>
+                It was a proposal to make sleep(1) DTRT if given a non-integer argument that set this particular grass-fire off. I'm not going to say anymore about it than that, because it is a much smaller item than one would expect from the length of the thread, and it has already received far more attention than some of the *problems* we have around here.
+            </p>
+          </blockquote>
+          <figcaption>Poul-Henning Kamp &lt;phk@freebsd.org&gt;</figcaption>
+        </figure>
+
+        <p class="note">http://phk.freebsd.dk/sagas/bikeshed.html</p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout" style="font-size: 3em; padding: 0 40px; width: calc(100% - 80px);">
+            Количество шума, создаваемого изменением, обратно пропорционально сложности изменения
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2>Что важнее?</h2>
+
+        <div style="font-size: 3em; text-align: center; line-height: 1.5em;">
+            <b>Формат API</b><br>или<br><b>Бизнес задачи</b>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">API - велосипедный сарай</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Как избежать</h2>
+
+        <ol>
+            <li class="next">Не слушать <b>советы</b></li>
+            <li class="next">Делать так, как <b>Вы</b> хотите</li>
+            <li class="next">Спросить себя <b>важно</b> ли это?</li>
+            <li class="next">Использовать <b>объективные</b> критерии</li>
+            <li class="next"><b>Не говорить</b> о том, о чём не хочешь слушать советы</li>
+            <li class="next"><b>Отпустите</b></li>
+            <li class="next">Выберите <b>любой</b> предлагаемый вариант</li>
+        </ol>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout" style="font-size: 4em;">Anti-bikeshedding tool</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Начинаем проектировать</h2>
     </section>
 
     <!-- немного теории про виды API -->
     <section class="slide">
-        <h2 class="shout">История</h2>
-    </section>
-
-    <section class="slide">
-        <ol class="place" style="font-size: 3.5em">
-            <li class="next"><b>1981</b> RPC</li>
-            <li class="next"><b>2000</b> REST</li>
-        </ol>
-    </section>
-
-    <section class="slide">
-        <h2 class="shout">RPC</h2>
-    </section>
-
-    <section class="slide">
-        <h2>RPC Пример</h2>
-
-        <ol style="font-size: 1.5em">
-            <li class="next"><b>Клиент:</b> вызови функцию <i>"hello"</i> с параметром <i>"FrontendConf"</i></li>
-            <li class="next"><b>Сервер:</b> ответ &mdash; <i>"Hello FrontendConf!"</i></li>
-        </ol>
-    </section>
-
-    <section class="slide">
-        <h2>XML-RPC (from 1998)</h2>
-
-        <pre>
-            <code class="next">&lt;?xml version="1.0"?&gt;</code>
-            <code class="next">&lt;methodCall&gt;</code>
-            <code class="next">  &lt;methodName&gt;<mark>examples.getStateName</mark>&lt;/methodName&gt;</code>
-            <code class="next">  &lt;params&gt;</code>
-            <code class="next">    &lt;param&gt;<mark>&lt;value&gt;&lt;i4&gt;40&lt;/i4&gt;&lt;/value&gt;</mark>&lt;/param&gt;</code>
-            <code class="next">  &lt;/params&gt;</code>
-            <code class="next">&lt;/methodCall&gt;</code>
-        </pre>
-    </section>
-
-    <section class="slide">
-        <h2>Simple Object Access Protocol (SOAP) (2007)</h2>
-
-        <pre>
-            <code class="next">&lt;soap:Envelope xmlns:soap=&quot;http://schemas.xmlsoap.org/...</code>
-            <code class="next">   &lt;soap:Body&gt;</code>
-            <code class="next">     &lt;<mark>getProductDetails</mark> xmlns=&quot;http://warehouse.example...</code>
-            <code class="next">       <mark>&lt;productID&gt;12345&lt;/productID&gt;</mark></code>
-            <code class="next">     &lt;/getProductDetails&gt;</code>
-            <code class="next">   &lt;/soap:Body&gt;</code>
-            <code class="next">&lt;/soap:Envelope&gt;</code>
-        </pre>
-    </section>
-
-    <section class="slide">
-        <h2>JSON-RPC (2013)</h2>
-
-        <pre class="next">
-            <code>{</code>
-            <code> "jsonrpc": "2.0", "method": <mark>"subtract"</mark>,</code>
-            <code> "params": <mark>[42, 23]</mark>, "id": 1</code>
-            <code>}</code>
-        </pre>
-
-        <pre class="next">
-            <code class="next">{"jsonrpc": "2.0", "result": <mark>19</mark>, "id": 1}</code>
-        </pre>
-    </section>
-
-    <section class="slide">
-        <h2>GraphQL (2016)</h2>
-
-        <pre class="next">
-            <code><mark>POST /graphql</mark> HTTP/1.1</code>
-            <code>Content-Type: application/json</code>
-            <code>{</code>
-            <code>  "query": "...",</code>
-            <code>  "operationName": "...",</code>
-            <code>  "variables": { "myVariable": "someValue", ... }</code>
-            <code>}</code>
-        </pre>
-    </section>
-
-    <section class="slide">
-        <h2 class="shout">REST</h2>
+        <h2 class="shout">REST (2000)</h2>
     </section>
 
     <!-- можно разбить на 6 слайдов -->
@@ -194,19 +164,17 @@
         <ol style="font-size: 1em;">
             <li class="next">Модель клиент-сервер</li>
             <li class="next">Отсутствие состояния</li>
-            <li class="next">Кэширование</li>
-            <li class="next"><b>Единообразие интерфейса</b></li>
-            <li class="next">Слои</li>
-            <li class="next">Код по требованию (необязательное ограничение)</li>
+            <li class="next">
+                <b>Единообразие интерфейса</b>
+
+                <ol>
+                    <li class="next">Идентификация ресурсов</li>
+                    <li class="next">Манипуляция ресурсами через представление</li>
+                    <li class="next">«Самоописываемые» сообщения</li>
+                    <li class="next">Гипермедиа</li>
+                </ol>
+            </li>
         </ol>
-    </section>
-
-    <section class="slide">
-        <h2 class="shout">Начинаем проектировать</h2>
-    </section>
-
-    <section class="slide clear">
-        <img class="cover w" src="pictures/junior-developer.jpg" alt="junior developer">
     </section>
 
     <section class="slide">
@@ -214,11 +182,15 @@
     </section>
 
     <section class="slide clear">
+        <img class="cover w" src="pictures/junior-developer.jpg" alt="junior developer">
+    </section>
+
+    <section class="slide clear">
         <img class="cover" src="pictures/crud.png" alt="CRUD">
     </section>
 
     <section class="slide">
-        <h2>Единообразный интерфейс</h2>
+        <h2>Интерфейс</h2>
 
         <ol style="font-size: 1.2em;">
             <li class="next">Создать статью</li>
@@ -230,7 +202,43 @@
     </section>
 
     <section class="slide">
-        <h2>Единообразный интерфейс</h2>
+        <h2>Интерфейс</h2>
+        <table class="striped">
+            <tr>
+                <th scope="col">Метод</th>
+                <th>Путь</th>
+                <th>Действие</th>
+            </tr>
+            <tr class="next">
+                <td>GET</td>
+                <td>/createArticle</td>
+                <td>Создать статью</td>
+            </tr>
+            <tr class="next">
+                <td>GET</td>
+                <td>/articlesList</td>
+                <td>Получить список статей</td>
+            </tr>
+            <tr class="next">
+                <td>GET</td>
+                <td>/articles/getById?id=1</td>
+                <td>Получить статью</td>
+            </tr>
+            <tr class="next">
+                <td>GET</td>
+                <td>/articles/update?newTitle=Заголовок</td>
+                <td>Обновить статью</td>
+            </tr>
+            <tr class="next">
+                <td>GET</td>
+                <td>/deleteArticle?id=1</td>
+                <td>Удалить статью</td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="slide">
+        <h2>Идентификация ресурсов</h2>
         <table class="striped">
             <tr>
                 <th scope="col">Метод</th>
@@ -270,9 +278,9 @@
     </section>
 
     <section class="slide">
-        <h2>💔 Content-Type, Accept</h2>
+        <h2>Получаем статью</h2>
         <pre>
-            <code class="next"><mark>DELETE /articles/1</mark> HTTP/1.1</code>
+            <code class="next"><mark>GET /articles/1</mark> HTTP/1.1</code>
             <code class="next">Accept: <mark>application/json</mark></code>
         </pre>
         <pre>
@@ -303,7 +311,7 @@
         <h2 class="shout">Коды ответов</h2>
     </section>
 
-    <section class="slide">
+    <section class="slide clear" style="background-color: #000;">
         <img class="place" width="600" src="pictures/200-OK-600x480.jpg" alt="200 OK Cat">
     </section>
 
@@ -392,30 +400,30 @@
     <section class="slide">
         <h2>👌 Или так</h2>
         <pre>
-            <code class="next">GET /articles?<mark>page[offset]=30</mark>&<mark>page[limit]=30</mark></code>
-            <code class="next">Content-Type: application/json</code>
+            <code>GET /articles?<mark>page[offset]=30</mark>&<mark>page[limit]=30</mark></code>
+            <code>Content-Type: application/json</code>
         </pre>
         <pre>
-            <code class="next">HTTP/1.1 200 OK</code>
-            <code class="next">{</code>
-            <code class="next">  "data": [{ "id": 1, "title": "JSON API"}, ...],</code>
-            <code class="next">  "meta": { "count": 10080 }</code>
-            <code class="next">}</code>
+            <code>HTTP/1.1 200 OK</code>
+            <code>{</code>
+            <code>  "data": [{ "id": 1, "title": "JSON API"}, ...],</code>
+            <code>  "meta": { "count": 10080 }</code>
+            <code>}</code>
         </pre>
     </section>
 
     <section class="slide">
         <h2>👌 Или так</h2>
         <pre>
-            <code class="next">GET /articles?<mark>page[published_at]=1538332156</mark></code>
-            <code class="next">Content-Type: application/json</code>
+            <code>GET /articles?<mark>page[published_at]=1538332156</mark></code>
+            <code>Content-Type: application/json</code>
         </pre>
         <pre>
-            <code class="next">HTTP/1.1 200 OK</code>
-            <code class="next">{</code>
-            <code class="next">  "data": [{ "id": 1, "title": "JSON API"}, ...],</code>
-            <code class="next">  "meta": { "count": 10080 }</code>
-            <code class="next">}</code>
+            <code>HTTP/1.1 200 OK</code>
+            <code>{</code>
+            <code>  "data": [{ "id": 1, "title": "JSON API"}, ...],</code>
+            <code>  "meta": { "count": 10080 }</code>
+            <code>}</code>
         </pre>
     </section>
 
@@ -508,7 +516,7 @@
     <section class="slide">
         <h2>👌 Решение</h2>
         <pre>
-            <code class="next">GET /articles/1<mark>?fields[articles]=title</mark> HTTP/1.1</code>
+            <code class="next">GET /articles/1<mark>?fields[article]=title</mark> HTTP/1.1</code>
         </pre>
 
         <pre class="next">
@@ -522,11 +530,16 @@
     </section>
 
     <section class="slide">
-        <h2 class="shout">Нужна фильтрация</h2>
+        <h2 class="shout">Поиск по статьям</h2>
     </section>
 
     <section class="slide">
         <h2>👌 Решение</h2>
+
+        <pre>
+            <code class="next">GET /articles/1<mark>?filters[search]=api</mark> HTTP/1.1</code>
+        </pre>
+
         <pre>
             <code class="next">GET /articles/1<mark>?filters[from_date]=1538332156</mark> HTTP/1.1</code>
         </pre>
@@ -537,10 +550,6 @@
 
         <pre>
             <code class="next">GET /articles/1<mark>?filters[author]=1</mark> HTTP/1.1</code>
-        </pre>
-
-        <pre>
-            <code class="next">GET /articles/1<mark>?filters[search]=api</mark> HTTP/1.1</code>
         </pre>
     </section>
 
@@ -589,7 +598,7 @@
     </section>
 
     <section class="slide">
-        <h2 class="shout">Гипермедиа</h2>
+        <h2 class="shout">Нужно поменять URLs</h2>
     </section>
 
     <section class="slide">
@@ -600,10 +609,10 @@
             <code>{</code>
             <code>  "data": [{</code>
             <code>      ...</code>
-            <code>      <mark>"links": { "self": "/articles/1" },</mark></code>
+            <code>      <mark>"links": { "self": "http://localhost/articles/1" },</mark></code>
             <code>      "relationships": { ... }</code>
             <code>  }],</code>
-            <code>  <mark>"links": { "self": "/articles" }</mark></code>
+            <code>  <mark>"links": { "self": "http://localhost/articles" }</mark></code>
             <code>}</code>
         </pre>
     </section>
@@ -616,8 +625,8 @@
             <code>  "relationships": {</code>
             <code>    "comments": {</code>
             <code>      "links": {</code>
-            <code>        <mark>"self": "/articles/1/relationships/comments",</mark></code>
-            <code>        <mark>"related": "/articles/1/comments"</mark></code>
+            <code>        <mark>"self": "http://localhost/articles/1/relationships/comments",</mark></code>
+            <code>        <mark>"related": "http://localhost/articles/1/comments"</mark></code>
             <code>      }</code>
             <code>    }</code>
             <code>  }</code>
@@ -660,7 +669,7 @@
     </section>
 
     <section class="slide">
-        <h2>Плюсы JSON API</h2>
+        <h2>➕ Плюсы JSON API</h2>
 
         <ol>
             <li class="next">Общее соглашение для всех</li>
@@ -723,7 +732,7 @@
         <h2>Неоднозначность</h2>
 
         <pre style="font-size: 1em;" class="next">
-            <code>GET /articles/1?include=comments HTTP/1.1</code>
+            <code>GET /articles/1<mark>?include=comments</mark> HTTP/1.1</code>
         </pre>
 
         <pre style="font-size: 1em;" class="next">
@@ -731,7 +740,7 @@
         </pre>
 
         <pre style="font-size: 1em;" class="next">
-            <code>GET /comments?filters[article]=1 HTTP/1.1</code>
+            <code>GET /comments<mark>?filters[article]=1</mark> HTTP/1.1</code>
         </pre>
     </section>
 
@@ -769,11 +778,15 @@
         <h2 class="shout">Swagger</h2>
     </section>
 
-    <section class="slide clear">
+    <section class="slide clear" style="background-color: #fafafa;">
         <img class="cover" src="pictures/petstore.png" alt="Petstore">
     </section>
 
-    <section class="slide clear">
+    <section class="slide clear" style="background-color: #e9f6f0;">
+        <img class="cover" src="pictures/petstore_model.png" alt="Petstore Model">
+    </section>
+
+    <section class="slide clear" style="background-color: #eff7ff;">
         <img class="cover" src="pictures/swagger.png" alt="JSON API Swagger">
     </section>
 
@@ -798,7 +811,7 @@
     <section class="slide">
         <h2>OData (2015) - the best way to REST</h2>
 
-        <pre style="font-size: 0.6em;">
+        <pre style="font-size: 0.7em;">
             <code class="next">HTTP/1.1 200 OK</code>
             <code class="next">Content-Type: application/json; odata.metadata=minimal</code>
             <code class="next">OData-Version: 4.0</code>
@@ -806,9 +819,7 @@
             <code class="next">  '@odata.context': 'http://services.odata.org/V4/...</code>
             <code class="next">  '@odata.nextLink': 'http://services.odata.org/V4/...</code>
             <code class="next">  'value': [{</code>
-            <code class="next">    '@odata.id': 'http://services.odata.org/V4/...</code>
             <code class="next">    '@odata.etag': 'W/'08D1D5BD423E5158'',</code>
-            <code class="next">    '@odata.editLink': 'http://services.odata.org/V4/...</code>
             <code class="next">    'UserName': 'russellwhyte',</code>
             <code class="next">    ...</code>
         </pre>
@@ -862,8 +873,8 @@
         </ol>
     </section>
 
-    <section class="slide">
-        <h2 class="shout">Вопросы❓</h2>
+    <section class="slide clear" style="background-color: #c30400;">
+        <img class="cover h" src="pictures/4df7ea9931f24719762911e4af849a09.png" alt="bike-shedding">
     </section>
 
     <footer class="badge">
