@@ -154,6 +154,10 @@
     </section>
 
     <!-- немного теории про виды API -->
+    <section class="slide clear">
+        <img class="place" src="pictures/roy_fielding_sq.jpg" alt="bellefonte-nuclear-power-plant">
+    </section>
+
     <section class="slide">
         <h2 class="shout">REST (2000)</h2>
     </section>
@@ -179,6 +183,10 @@
 
     <section class="slide">
         <h2 class="shout">RESTful-блог</h2>
+    </section>
+
+    <section class="slide clear">
+        <img class="cover h" src="pictures/blogexample.png" alt="blogexample">
     </section>
 
     <section class="slide clear">
@@ -238,7 +246,7 @@
     </section>
 
     <section class="slide">
-        <h2>Идентификация ресурсов</h2>
+        <h2>👌 Правильно</h2>
         <table class="striped">
             <tr>
                 <th scope="col">Метод</th>
@@ -274,13 +282,13 @@
     </section>
 
     <section class="slide">
-        <h2 class="shout">Нет стандарта</h2>
+        <h2 class="shout">Почему так правильно?</h2>
     </section>
 
     <section class="slide">
-        <h2>Получаем статью</h2>
+        <h2>Удаляем статью</h2>
         <pre>
-            <code class="next"><mark>GET /articles/1</mark> HTTP/1.1</code>
+            <code class="next"><mark>DELETE /articles/1</mark> HTTP/1.1</code>
             <code class="next">Accept: <mark>application/json</mark></code>
         </pre>
         <pre>
@@ -483,12 +491,12 @@
 
     <section class="slide">
         <h2>👌 Решение: нормализация данных</h2>
-        <pre class="next">
+        <pre class="next" style="font-size: 0.9em;">
             <code>HTTP/1.1 200 OK</code>
             <code>{ "data": [{</code>
             <code>    ...</code>
             <code>    "relationships": {</code>
-            <code class="next">      "author": { "id": 1, <mark>"type": "people"</mark> } }</code>
+            <code>      "author": { "id": 1, <mark>"type": "people"</mark> } }</code>
             <code>    }</code>
             <code>  }, ... ]</code>
             <code>}</code>
@@ -497,7 +505,7 @@
 
     <section class="slide">
         <h2>👌 Решение: нормализация данных</h2>
-        <pre>
+        <pre style="font-size: 0.9em;">
             <code>HTTP/1.1 200 OK</code>
             <code>{</code>
             <code>  "data": [ ... ],</code>
@@ -578,31 +586,11 @@
     </section>
 
     <section class="slide">
-        <h2>👌 Решение</h2>
-
-        <pre class="next">
-            <code>GET /articles/1<mark>?sort=title</mark> HTTP/1.1</code>
-        </pre>
-
-        <pre class="next">
-            <code>GET /articles/1<mark>?sort=published_at</mark> HTTP/1.1</code>
-        </pre>
-
-        <pre class="next">
-            <code>GET /articles/1<mark>?sort=-published_at</mark> HTTP/1.1</code>
-        </pre>
-
-        <pre class="next">
-            <code>GET /articles/1<mark>?sort=author,-published_at</mark> HTTP/1.1</code>
-        </pre>
-    </section>
-
-    <section class="slide">
         <h2 class="shout">Нужно поменять URLs</h2>
     </section>
 
     <section class="slide">
-        <h2>👌 Решение</h2>
+        <h2>👌 Решение: гипермедиа</h2>
 
         <pre style="font-size: 0.8em;">
             <code>GET /articles HTTP/1.1</code>
@@ -618,7 +606,7 @@
     </section>
 
     <section class="slide">
-        <h2>👌 Решение</h2>
+        <h2>👌 Решение: гипермедиа</h2>
 
         <pre style="font-size: 0.8em;">
             <code>  ...</code>
