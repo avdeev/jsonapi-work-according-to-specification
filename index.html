@@ -524,7 +524,7 @@
     <section class="slide">
         <h2>👌 Решение</h2>
         <pre>
-            <code class="next">GET /articles/1<mark>?fields[article]=title</mark> HTTP/1.1</code>
+            <code class="next">GET /articles<mark>?fields[article]=title</mark> HTTP/1.1</code>
         </pre>
 
         <pre class="next">
@@ -545,19 +545,19 @@
         <h2>👌 Решение</h2>
 
         <pre>
-            <code class="next">GET /articles/1<mark>?filters[search]=api</mark> HTTP/1.1</code>
+            <code class="next">GET /articles<mark>?filters[search]=api</mark> HTTP/1.1</code>
         </pre>
 
         <pre>
-            <code class="next">GET /articles/1<mark>?filters[from_date]=1538332156</mark> HTTP/1.1</code>
+            <code class="next">GET /articles<mark>?filters[from_date]=1538332156</mark> HTTP/1.1</code>
         </pre>
 
         <pre>
-            <code class="next">GET /articles/1<mark>?filters[is_published]=true</mark> HTTP/1.1</code>
+            <code class="next">GET /articles<mark>?filters[is_published]=true</mark> HTTP/1.1</code>
         </pre>
 
         <pre>
-            <code class="next">GET /articles/1<mark>?filters[author]=1</mark> HTTP/1.1</code>
+            <code class="next">GET /articles<mark>?filters[author]=1</mark> HTTP/1.1</code>
         </pre>
     </section>
 
@@ -569,19 +569,19 @@
         <h2>👌 Решение</h2>
 
         <pre class="next">
-            <code>GET /articles/1<mark>?sort=title</mark> HTTP/1.1</code>
+            <code>GET /articles<mark>?sort=title</mark> HTTP/1.1</code>
         </pre>
 
         <pre class="next">
-            <code>GET /articles/1<mark>?sort=published_at</mark> HTTP/1.1</code>
+            <code>GET /articles<mark>?sort=published_at</mark> HTTP/1.1</code>
         </pre>
 
         <pre class="next">
-            <code>GET /articles/1<mark>?sort=-published_at</mark> HTTP/1.1</code>
+            <code>GET /articles<mark>?sort=-published_at</mark> HTTP/1.1</code>
         </pre>
 
         <pre class="next">
-            <code>GET /articles/1<mark>?sort=author,-published_at</mark> HTTP/1.1</code>
+            <code>GET /articles<mark>?sort=author,-published_at</mark> HTTP/1.1</code>
         </pre>
     </section>
 
