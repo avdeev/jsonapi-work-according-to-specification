@@ -1,7 +1,7 @@
 {
   "name": "shower",
   "description": "Shower HTML presentation engine",
-  "version": "2.7.0",
+  "version": "2.3.0",
   "author": {
     "name": "Vadim Makeev",
     "url": "https://pepelsbey.net/"
@@ -12,7 +12,7 @@
     "url": "git://github.com/shower/shower.git"
   },
   "bugs": {
-    "url": "https://github.com/shower/shower/issues"
+    "url": "http://github.com/shower/shower/issues"
   },
   "license": "MIT",
   "keywords": [
@@ -27,20 +27,28 @@
     "README.md"
   ],
   "dependencies": {
-    "@shower/material": "^2.2.2",
-    "@shower/ribbon": "^3.2.3",
-    "shower-core": "^2.1.0"
+    "shower-core": "^2.1.0",
+    "shower-material": "^2.1.3",
+    "shower-ribbon": "^3.1.3"
   },
   "devDependencies": {
+    "browser-sync": "^2.24.5",
+    "del": "^3.0.0",
+    "gh-pages": "^2.0.0",
+    "gulp": "^4.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^1.0.0",
+    "gulp-zip": "^4.0.0",
+    "merge-stream": "^1.0.0",
     "path-exists-cli": "^1.0.0",
-    "@shower/cli": "^0.2.6"
+    "shower-cli": "^0.2.2"
   },
   "scripts": {
     "pdf": "shower pdf",
-    "start": "shower serve",
-    "build": "shower prepare --files '**' --files '!{docs,node_modules,prepared}{,/**}' --files '!*.{md,toml,json}'",
-    "archive": "shower archive --files '**' --files '!{docs,node_modules,prepared}{,/**}' --files '!*.{md,toml,json}'",
-    "publish": "shower publish --files '**' --files '!{docs,node_modules,prepared}{,/**}' --files '!*.{md,toml,json}'",
-    "test": "npm run build && ls prepared && npm run archive && path-exists archive.zip"
+    "start": "gulp serve",
+    "prepare": "gulp prepare",
+    "archive": "gulp archive",
+    "publish": "gulp publish",
+    "test": "npm run prepare && ls prepared && npm run archive && path-exists archive.zip"
   }
 }
