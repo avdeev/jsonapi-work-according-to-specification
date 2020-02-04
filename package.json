@@ -38,9 +38,9 @@
   "scripts": {
     "pdf": "shower pdf",
     "start": "shower serve",
-    "shower-prepare": "shower prepare --files '**' --files '!{docs,node_modules,prepared}{,/**}' --files '!*.{md,toml,json}'",
+    "build": "shower prepare --files '**' --files '!{docs,node_modules,prepared}{,/**}' --files '!*.{md,toml,json}'",
     "archive": "shower archive --files '**' --files '!{docs,node_modules,prepared}{,/**}' --files '!*.{md,toml,json}'",
     "publish": "shower publish --files '**' --files '!{docs,node_modules,prepared}{,/**}' --files '!*.{md,toml,json}'",
-    "test": "npm run prepare && ls prepared && npm run archive && path-exists archive.zip"
+    "test": "npm run build && ls prepared && npm run archive && path-exists archive.zip"
   }
 }
