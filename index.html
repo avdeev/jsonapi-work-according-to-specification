@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>JSON API &mdash; работаем по спецификации - Алексей Авдеев</title>
+    <title>JSON:API &mdash; работаем по спецификации - Алексей Авдеев</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="node_modules/shower-ribbon/styles/styles.css">
@@ -38,12 +38,12 @@
 <body class="shower list">
 
     <header class="caption">
-        <h1>JSON API &mdash; работаем по спецификации</h1>
+        <h1>JSON:API &mdash; работаем по спецификации</h1>
         <p><a href="https://alexey-avdeev.com/">Алексей Авдеев</a>, <a href="https://neuron.digital/">Neuron.Digital</a></p>
     </header>
 
     <section class="slide clear" id="cover">
-        <h2>JSON API &mdash; работаем по спецификации</h2>
+        <h2>JSON:API &mdash; работаем по спецификации</h2>
         <p><a href="https://alexey-avdeev.com/">Алексей Авдеев</a>, <a href="https://neuron.digital/">Neuron.Digital</a></p>
         <figure>
             <img class="cover h" src="pictures/fcconf_title.png" alt="FrontendConf Background">
@@ -341,7 +341,7 @@
         <pre>
             <code class="next">POST /articles HTTP/1.1</code>
             <code class="next">Content-Type: application/json</code>
-            <code class="next">{ "id": 1, "title": "Про JSON API"}</code>
+            <code class="next">{ "id": 1, "title": "Про JSON:API"}</code>
         </pre>
         <pre>
             <code class="next"><mark>HTTP/1.1 422 Unprocessable Entity</mark></code>
@@ -384,7 +384,7 @@
         <pre>
             <code class="next">HTTP/1.1 200 OK</code>
             <code class="next">[</code>
-            <code class="next">  { "id": 1, "title": "Про JSON API"},</code>
+            <code class="next">  { "id": 1, "title": "Про JSON:API"},</code>
             <code class="next">  { "id": 2, "title": "Про XML-RPC"}</code>
             <code class="next">]</code>
         </pre>
@@ -399,7 +399,7 @@
         <pre>
             <code class="next">HTTP/1.1 200 OK</code>
             <code class="next">{</code>
-            <code class="next">  "data": [{ "id": 1, "title": "JSON API"}, ...],</code>
+            <code class="next">  "data": [{ "id": 1, "title": "JSON:API"}, ...],</code>
             <code class="next">  "meta": { <mark>"count": 10080</mark> }</code>
             <code class="next">}</code>
         </pre>
@@ -414,7 +414,7 @@
         <pre>
             <code>HTTP/1.1 200 OK</code>
             <code>{</code>
-            <code>  "data": [{ "id": 1, "title": "JSON API"}, ...],</code>
+            <code>  "data": [{ "id": 1, "title": "JSON:API"}, ...],</code>
             <code>  "meta": { "count": 10080 }</code>
             <code>}</code>
         </pre>
@@ -429,7 +429,7 @@
         <pre>
             <code>HTTP/1.1 200 OK</code>
             <code>{</code>
-            <code>  "data": [{ "id": 1, "title": "JSON API"}, ...],</code>
+            <code>  "data": [{ "id": 1, "title": "JSON:API"}, ...],</code>
             <code>  "meta": { "count": 10080 }</code>
             <code>}</code>
         </pre>
@@ -462,7 +462,7 @@
         <pre>
             <code class="next">HTTP/1.1 200 OK</code>
             <code class="next">{ "data": [{</code>
-            <code class="next">  { attributes: { "id": 1, "title": "JSON API" },</code>
+            <code class="next">  { attributes: { "id": 1, "title": "JSON:API" },</code>
             <code class="next">  { relationships: {</code>
             <code class="next">    <mark>"author": { "id": 1, "name": "Avdeev" } }</mark></code>
             <code class="next">  }, ...</code>
@@ -482,7 +482,7 @@
             <code class="next">HTTP/1.1 200 OK</code>
             <code class="next">{ "data": [{</code>
             <code class="next">    "id": "1", <mark>"type": "article"</mark>,</code>
-            <code class="next">    "attributes": { "title": "JSON API" },</code>
+            <code class="next">    "attributes": { "title": "JSON:API" },</code>
             <code class="next">    "relationships": { ... }</code>
             <code class="next">  }, ... ]</code>
             <code class="next">}</code>
@@ -531,7 +531,7 @@
             <code>HTTP/1.1 200 OK</code>
             <code>{ "data": [{</code>
             <code>    "id": "1", "type": "article",</code>
-            <code>    "attributes": { <mark>"title": "Про JSON API"</mark> },</code>
+            <code>    "attributes": { <mark>"title": "Про JSON:API"</mark> },</code>
             <code>  }, ... ]</code>
             <code>}</code>
         </pre>
@@ -642,11 +642,11 @@
     </section>
 
     <section class="slide">
-        <img class="place" width="640" src="pictures/jsonapi.png" alt="JSON API">
+        <img class="place" width="640" src="pictures/jsonapi.png" alt="JSON:API">
     </section>
 
     <section class="slide">
-        <h2>Экосистема JSON API</h2>
+        <h2>Экосистема JSON:API</h2>
         <p>Список реализаций спефикации &mdash; <a href="http://jsonapi.org/implementations/" target="_blank">http://jsonapi.org/implementations/</a></p>
         <ol>
             <li class="next">170 различных реализаций</li>
@@ -657,7 +657,7 @@
     </section>
 
     <section class="slide">
-        <h2>➕ Плюсы JSON API</h2>
+        <h2>➕ Плюсы JSON:API</h2>
 
         <ol>
             <li class="next">Общее соглашение для всех</li>
@@ -671,7 +671,7 @@
     </section>
 
     <section class="slide">
-        <h2>🤯 Минусы JSON API</h2>
+        <h2>🤯 Минусы JSON:API</h2>
 
         <ol>
             <li class="next"><b>Фронтенд</b>: надо парсить ответы</li>
@@ -684,7 +684,7 @@
     </section>
 
     <section class="slide">
-        <h2 class="shout">Подводные <br>камни JSON API</h2>
+        <h2 class="shout">Подводные <br>камни JSON:API</h2>
     </section>
 
     <section class="slide">
@@ -763,7 +763,7 @@
     </section>
 
     <section class="slide">
-        <h2 class="shout">Swagger</h2>
+        <h2 class="shout">OpenAPI<br>(Swagger)</h2>
     </section>
 
     <section class="slide clear" style="background-color: #fafafa;">
@@ -775,7 +775,7 @@
     </section>
 
     <section class="slide clear" style="background-color: #eff7ff;">
-        <img class="cover" src="pictures/swagger.png" alt="JSON API Swagger">
+        <img class="cover" src="pictures/swagger.png" alt="JSON:API Swagger">
     </section>
 
     <section class="slide">
@@ -836,7 +836,7 @@
         <ol style="font-size: 1.5em">
             <li class="next">🦎 Простейший RESTful</li>
             <li class="next">🐊 Прогрессивное улучшение</li>
-            <li class="next">🦖 JSON API</li>
+            <li class="next">🦖 JSON:API</li>
         </ol>
     </section>
 
