@@ -12,13 +12,14 @@
         }
 
         .progress::before {
-            background-color: #fa1100;
+            background-color: #bb4093;
         }
 
         .slide {
             padding-top: 51px;
-            background: #fff url(pictures/fcconf_bg.png) no-repeat;
-            background-size: cover;
+            background: #fff url(pictures/avito-tech.png) no-repeat;
+            background-size: 100px;
+            background-position: calc(100% - 15px) calc(100% - 15px);
         }
 
         .slide.clear {
@@ -43,16 +44,23 @@
     </header>
 
     <section class="slide clear" id="cover">
-        <h2>JSON:API &mdash; работаем по спецификации</h2>
-        <p><a href="https://alexey-avdeev.com/">Алексей Авдеев</a>, <a href="https://neuron.digital/">Neuron.Digital</a></p>
         <figure>
-            <img class="cover h" src="pictures/fcconf_title.png" alt="FrontendConf Background">
+            <img src="pictures/Avito_frontend_meetup.png" alt="Avito.Tech Background">
         </figure>
+        <div style="text-align: center; padding-bottom: 50px;">
+            <h2>JSON:API &mdash; работаем по спецификации</h2>
+            <p><a href="https://alexey-avdeev.com/">Алексей Авдеев</a>, <a href="https://neuron.digital/">Neuron.Digital</a></p>
+        </div>
         <style>
+            #cover {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
             #cover h2 {
                 margin: 0;
                 color: #000;
-                font-size:60px;
+                font-size:90px;
             }
             #cover p {
                 margin: 10px 0 0;
@@ -62,19 +70,10 @@
             #cover p a {
                 color: #000;
             }
+            #cover img {
+                width: 100%;
+            }
         </style>
-    </section>
-
-    <section class="slide">
-        <h2>👨‍💻 О себе</h2>
-        <ol>
-            <li>👨 Алексей Авдеев (<a href="https://github.com/avdeev">https://github.com/avdeev</a>)</li>
-            <li class="next">🏙️ Из Нижнего Новгорода, работаю в Москве</li>
-            <li class="next">🌐 <a href="https://neuron.digital/">Neuron.Digital</a></li>
-            <li class="next">👔 Руковожу командой из 8 фронтенд-разработчиков</li>
-            <li class="next">👴 Программирую с 2002 года</li>
-            <li class="next">🤹 Сейчас активно использую React</li>
-        </ol>
     </section>
 
     <!-- начинаем с проблемы -->
