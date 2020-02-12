@@ -1,6 +1,6 @@
-# JSON API - работаем по спецификации
+# JSON:API - работаем по спецификации
 
-Разберемся в спецификации JSON API.
+Разберемся в спецификации JSON:API.
 
 Расскажу, в чём её суть, чем она дополняет RESTful и чем отличается от GraphQL.
 Плюсы, минусы, подводные камни, опыт использования.
@@ -14,3 +14,5 @@
 [Слайды](https://alexey-avdeev.com/jsonapi-work-according-to-specification/)
 
 [Расшифровка доклада на Habr](https://habr.com/ru/company/oleg-bunin/blog/433322/)
+
+[Доклад в программе Avito Frontend meetup](https://habr.com/ru/company/avito/blog/485196/)
