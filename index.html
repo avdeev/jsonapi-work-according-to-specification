@@ -76,21 +76,47 @@
         </style>
     </section>
 
-    <section class="slide" hidden>
-        <h2>👨‍💻 О себе</h2>
-        <ol>
-            <li>👨 Алексей Авдеев (<a href="https://github.com/avdeev">https://github.com/avdeev</a>)</li>
-            <li class="next">🏙️ Из Нижнего Новгорода, работаю в Москве</li>
-            <li class="next">🌐 <a href="https://neuron.digital/">Neuron.Digital</a></li>
-            <li class="next">👔 Руковожу командой из 8 фронтенд-разработчиков</li>
-            <li class="next">👴 Программирую с 2002 года</li>
-            <li class="next">🤹 Сейчас активно использую React</li>
+    <section class="slide">
+        <h2>Граммар-наци</h2>
+
+        <div style="font-size: 3em; text-align: center; line-height: 1.5em;">
+            <b>JSONAPI</b><br><b>JSON API</b><br><b>JSON:API</b>
+        </div>
+    </section>
+
+    <section class="slide">
+        <img class="cover h" src="pictures/jsonapi-pr.png" alt="bellefonte-nuclear-power-plant">
+    </section>
+
+    <section class="slide">
+        <h2>О чём будем говорить</h2>
+        <ol style="font-size: 1.5em">
+            <li class="next">☯ В чём суть спецификации <b>JSON:API</b></li>
+            <li class="next">➕ Чем она дополняет <b>RESTful</b></li>
+            <li class="next">🎏 Чем отличается от <b>GraphQL</b></li>
+            <li class="next">⚠ Плюсы, минусы, подводные камни</li>
         </ol>
     </section>
 
     <section class="slide">
-        <h2 class="shout">
-            О чём будем говорить
+        <h2>О чём будем говорить</h2>
+        <ol style="font-size: 1.5em">
+            <li><mark>☯ В чём суть спецификации <b>JSON:API</b></mark></li>
+            <li>➕ Чем она дополняет <b>RESTful</b></li>
+            <li>🎏 Чем отличается от <b>GraphQL</b></li>
+            <li>⚠ Плюсы, минусы, подводные камни</li>
+        </ol>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout" style="font-size: 3em; padding: 0 40px; width: calc(100% - 80px);">
+            A&nbsp;SPECIFICATION FOR BUILDING APIS IN&nbsp;JSON
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout" style="font-size: 3em; padding: 0 40px; width: calc(100% - 80px);">
+            JSON:API can be&nbsp;your<br>anti-bikeshedding tool
         </h2>
     </section>
 
@@ -140,34 +166,33 @@
         <h2>Что важнее?</h2>
 
         <div style="font-size: 3em; text-align: center; line-height: 1.5em;">
-            <b>Формат API</b><br>или<br><b>Бизнес задачи</b>
+            <b>Формат API</b><br>или<br><b>Ваше приложение</b>
         </div>
     </section>
 
     <section class="slide">
-        <h2 class="shout">API - велосипедный сарай</h2>
+        <h2 class="shout" style="font-size: 3em; padding: 0 40px; width: calc(100% - 80px);">🚲 API&nbsp;&mdash; велосипедный сарай</h2>
     </section>
 
     <section class="slide">
         <h2>Как избежать</h2>
 
         <ol>
-            <li class="next">Не слушать <b>советы</b></li>
-            <li class="next">Делать так, как <b>Вы</b> хотите</li>
-            <li class="next">Спросить себя <b>важно</b> ли это?</li>
-            <li class="next">Использовать <b>объективные</b> критерии</li>
-            <li class="next"><b>Не говорить</b> о том, о чём не хочешь слушать советы</li>
-            <li class="next"><b>Отпустите</b></li>
-            <li class="next">Выберите <b>любой</b> предлагаемый вариант</li>
+            <li class="next">Не слушайте <b>советы</b></li>
+            <li class="next">Делайте так, как <b>Вы</b> хотите</li>
+            <li class="next"><b>Не говорите</b> о том, о чём не хотите слушать советы</li>
+            <li class="next"><mark>Используйте <b>объективные</b> критерии</mark></li>
         </ol>
     </section>
 
     <section class="slide">
-        <h2 class="shout" style="font-size: 4em;">Anti-bikeshedding tool</h2>
-    </section>
-
-    <section class="slide">
-        <h2 class="shout">Начинаем проектировать</h2>
+        <h2>О чём будем говорить</h2>
+        <ol style="font-size: 1.5em">
+            <li>☯ В чём суть спецификации <b>JSON:API</b></li>
+            <li><mark>➕ Чем она дополняет <b>RESTful</b></mark></li>
+            <li>🎏 Чем отличается от <b>GraphQL</b></li>
+            <li>⚠ Плюсы, минусы, подводные камни</li>
+        </ol>
     </section>
 
     <!-- немного теории про виды API -->
@@ -389,10 +414,6 @@
     </section>
 
     <section class="slide">
-        <img class="cover" src="pictures/pagination.png" alt="Паджинация">
-    </section>
-
-    <section class="slide">
         <h2>Запрос списка</h2>
         <pre>
             <code class="next"><mark>GET /articles</mark> HTTP/1.1</code>
@@ -405,6 +426,10 @@
             <code class="next">  { "id": 2, "title": "Про XML-RPC"}</code>
             <code class="next">]</code>
         </pre>
+    </section>
+
+    <section class="slide">
+        <img class="cover" src="pictures/pagination.png" alt="Паджинация">
     </section>
 
     <section class="slide">
@@ -463,7 +488,7 @@
     </section>
 
     <section class="slide">
-        <h2 class="shout">Добавляем связи</h2>
+        <h2 class="shout">Добавляем<br>связи</h2>
     </section>
 
     <section class="slide">
@@ -555,7 +580,7 @@
     </section>
 
     <section class="slide">
-        <h2 class="shout">Поиск по статьям</h2>
+        <h2 class="shout">Поиск<br>по&nbsp;статьям</h2>
     </section>
 
     <section class="slide">
@@ -660,6 +685,48 @@
 
     <section class="slide">
         <img class="place" width="640" src="pictures/jsonapi.png" alt="JSON:API">
+    </section>
+
+    <section class="slide">
+        <h2>О чём будем говорить</h2>
+        <ol style="font-size: 1.5em">
+            <li>☯ В чём суть спецификации <b>JSON:API</b></li>
+            <li>➕ Чем она дополняет <b>RESTful</b></li>
+            <li><mark>🎏 Чем отличается от <b>GraphQL</b></mark></li>
+            <li>⚠ Плюсы, минусы, подводные камни</li>
+        </ol>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Всем</h2>
+    </section>
+
+    <section class="slide">
+        <div style="font-size: 3em; text-align: center; line-height: 1.5em; margin-top: 50px;">
+            <b>Полная спецификация</b><br>vs<br><b>Язык запросов</b>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div style="font-size: 3em; text-align: center; line-height: 1.5em; margin-top: 50px;">
+            <b>REST</b><br>vs<br><b>не REST</b>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div style="font-size: 2.5em; text-align: center; line-height: 1.5em; margin-top: 75px;">
+            <b>Прогрессивное улучшение</b><br>vs<br><b>Большой взрыв</b>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>О чём будем говорить</h2>
+        <ol style="font-size: 1.5em">
+            <li>☯ В чём суть спецификации <b>JSON:API</b></li>
+            <li>➕ Чем она дополняет <b>RESTful</b></li>
+            <li>🎏 Чем отличается от <b>GraphQL</b></li>
+            <li><mark>⚠ Плюсы, минусы, подводные камни</mark></li>
+        </ol>
     </section>
 
     <section class="slide">
@@ -828,43 +895,6 @@
             <code class="next">    'UserName': 'russellwhyte',</code>
             <code class="next">    ...</code>
         </pre>
-    </section>
-
-    <section class="slide">
-        <h2 class="shout">Что с GraphQL?</h2>
-    </section>
-
-    <section class="slide">
-        <h2>Высокий порог входа</h2>
-        <img class="place" src="pictures/v2k1_EoWF88.jpg" alt="стримерша">
-    </section>
-
-    <section class="slide">
-        <h2>💥 Эффект большого взрыва</h2>
-        <ol style="font-size: 1.5em">
-            <li class="next">Нет никакого API</li>
-            <li class="next">💥</li>
-            <li class="next">GraphQL</li>
-        </ol>
-    </section>
-
-    <section class="slide">
-        <h2>Или</h2>
-        <ol style="font-size: 1.5em">
-            <li class="next">🦎 Простейший RESTful</li>
-            <li class="next">🐊 Прогрессивное улучшение</li>
-            <li class="next">🦖 JSON:API</li>
-        </ol>
-    </section>
-
-    <section class="slide">
-        <h2>🤯 Ад на бэкенде</h2>
-        <ol style="font-size: 1.5em">
-            <li class="next">Контроль вложенности</li>
-            <li class="next">Рекурсия</li>
-            <li class="next">Ограничение частоты</li>
-            <li class="next">Контроль доступа</li>
-        </ol>
     </section>
 
     <section class="slide">
