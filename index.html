@@ -79,8 +79,16 @@
     <section class="slide">
         <h2>Граммар-наци</h2>
 
-        <div style="font-size: 3em; text-align: center; line-height: 1.5em;">
-            <b>JSONAPI</b><br><b>JSON API</b><br><b>JSON:API</b>
+        <div style="font-size: 2em; text-align: center; line-height: 1.5em;">
+            <b>JSONAPI</b><br><b>JSON API</b><br><b>JSON-API</b><br><b>JSON:API</b>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>Граммар-наци</h2>
+
+        <div style="font-size: 2em; text-align: center; line-height: 1.5em;">
+            <b>JSONAPI</b><br><b>JSON API</b><br><b>JSON-API</b><br><mark><b>JSON:API</b></mark>
         </div>
     </section>
 
@@ -130,15 +138,12 @@
 
     <section class="slide">
         <h2 class="shout" style="font-size: 3em; padding: 0 40px; width: calc(100% - 80px);">
-            Время, потраченное на обсуждение пункта, обратно пропорционально рассматриваемой сумме
+            Время, потраченное на обсуждение пункта, обратно пропорционально рассматриваемой стоимости
         </h2>
     </section>
 
     <section class="slide clear">
         <img class="cover w" src="pictures/bellefonte-nuclear-power-plant.jpg" alt="bellefonte-nuclear-power-plant">
-        <h2 class="shout" style="color: #fff; font-size: 3em; text-shadow: 4px 4px 0 rgba(0, 0, 0, 1);">
-            The Bikeshed Effect
-        </h2>
     </section>
 
     <section class="slide">
@@ -175,14 +180,9 @@
     </section>
 
     <section class="slide">
-        <h2>Как избежать</h2>
-
-        <ol>
-            <li class="next">Не слушайте <b>советы</b></li>
-            <li class="next">Делайте так, как <b>Вы</b> хотите</li>
-            <li class="next"><b>Не говорите</b> о том, о чём не хотите слушать советы</li>
-            <li class="next"><mark>Используйте <b>объективные</b> критерии</mark></li>
-        </ol>
+        <h2 class="shout" style="font-size: 3em; padding: 0 40px; width: calc(100% - 80px);">
+            Используйте <b>объективные</b> критерии
+        </h2>
     </section>
 
     <section class="slide">
@@ -196,12 +196,12 @@
     </section>
 
     <!-- немного теории про виды API -->
-    <section class="slide clear">
-        <img class="place" src="pictures/roy_fielding_sq.jpg" alt="bellefonte-nuclear-power-plant">
-    </section>
-
     <section class="slide">
         <h2 class="shout">REST (2000)</h2>
+    </section>
+
+    <section class="slide clear">
+        <img class="place" src="pictures/roy_fielding_sq.jpg" alt="bellefonte-nuclear-power-plant">
     </section>
 
     <!-- можно разбить на 6 слайдов -->
@@ -223,16 +223,12 @@
         </ol>
     </section>
 
-    <section class="slide">
-        <h2 class="shout">RESTful-блог</h2>
-    </section>
-
     <section class="slide clear">
         <img class="cover h" src="pictures/blogexample.png" alt="blogexample">
     </section>
 
     <section class="slide clear">
-        <img class="cover w" src="pictures/junior-developer.jpg" alt="junior developer">
+        <img class="cover h" src="pictures/morti.png" alt="morti">
     </section>
 
     <section class="slide clear">
@@ -295,27 +291,27 @@
                 <th>Путь</th>
                 <th>Действие</th>
             </tr>
-            <tr class="next">
+            <tr>
                 <td>POST</td>
                 <td>/articles</td>
                 <td>Создать статью</td>
             </tr>
-            <tr class="next">
+            <tr>
                 <td>GET</td>
                 <td>/articles</td>
                 <td>Получить список статей</td>
             </tr>
-            <tr class="next">
+            <tr>
                 <td>GET</td>
                 <td>/articles/1</td>
                 <td>Получить статью</td>
             </tr>
-            <tr class="next">
+            <tr>
                 <td>PATCH</td>
                 <td>/articles/1</td>
                 <td>Обновить статью</td>
             </tr>
-            <tr class="next">
+            <tr>
                 <td>DELETE</td>
                 <td>/articles/1</td>
                 <td>Удалить статью</td>
@@ -874,9 +870,9 @@
         <h2>OData (2015) - the best way to REST</h2>
 
         <pre>
-            <code class="next">GET http://services.odata.org/v4/TripRW/People HTTP/1.1</code>
-            <code class="next">OData-Version: 4.0</code>
-            <code class="next">OData-MaxVersion: 4.0</code>
+            <code>GET http://services.odata.org/v4/TripRW/People HTTP/1.1</code>
+            <code>OData-Version: 4.0</code>
+            <code>OData-MaxVersion: 4.0</code>
         </pre>
     </section>
 
@@ -884,16 +880,16 @@
         <h2>OData (2015) - the best way to REST</h2>
 
         <pre style="font-size: 0.7em;">
-            <code class="next">HTTP/1.1 200 OK</code>
-            <code class="next">Content-Type: application/json; odata.metadata=minimal</code>
-            <code class="next">OData-Version: 4.0</code>
-            <code class="next">{</code>
-            <code class="next">  '@odata.context': 'http://services.odata.org/V4/...</code>
-            <code class="next">  '@odata.nextLink': 'http://services.odata.org/V4/...</code>
-            <code class="next">  'value': [{</code>
-            <code class="next">    '@odata.etag': 'W/'08D1D5BD423E5158'',</code>
-            <code class="next">    'UserName': 'russellwhyte',</code>
-            <code class="next">    ...</code>
+            <code>HTTP/1.1 200 OK</code>
+            <code>Content-Type: application/json; odata.metadata=minimal</code>
+            <code>OData-Version: 4.0</code>
+            <code>{</code>
+            <code>  '@odata.context': 'http://services.odata.org/V4/...</code>
+            <code>  '@odata.nextLink': 'http://services.odata.org/V4/...</code>
+            <code>  'value': [{</code>
+            <code>    '@odata.etag': 'W/'08D1D5BD423E5158'',</code>
+            <code>    'UserName': 'russellwhyte',</code>
+            <code>    ...</code>
         </pre>
     </section>
 
