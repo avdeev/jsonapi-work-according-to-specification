@@ -97,26 +97,6 @@
     </section>
 
     <section class="slide">
-        <h2>О чём будем говорить</h2>
-        <ol style="font-size: 1.5em">
-            <li class="next">☯ В чём суть спецификации <b>JSON:API</b></li>
-            <li class="next">➕ Чем она дополняет <b>RESTful</b></li>
-            <li class="next">🎏 Чем отличается от <b>GraphQL</b></li>
-            <li class="next">⚠ Плюсы, минусы, подводные камни</li>
-        </ol>
-    </section>
-
-    <section class="slide">
-        <h2>О чём будем говорить</h2>
-        <ol style="font-size: 1.5em">
-            <li><mark>☯ В чём суть спецификации <b>JSON:API</b></mark></li>
-            <li>➕ Чем она дополняет <b>RESTful</b></li>
-            <li>🎏 Чем отличается от <b>GraphQL</b></li>
-            <li>⚠ Плюсы, минусы, подводные камни</li>
-        </ol>
-    </section>
-
-    <section class="slide">
         <h2 class="shout" style="font-size: 3em; padding: 0 40px; width: calc(100% - 80px);">
             A&nbsp;SPECIFICATION FOR BUILDING APIS IN&nbsp;JSON
         </h2>
@@ -185,16 +165,6 @@
         </h2>
     </section>
 
-    <section class="slide">
-        <h2>О чём будем говорить</h2>
-        <ol style="font-size: 1.5em">
-            <li>☯ В чём суть спецификации <b>JSON:API</b></li>
-            <li><mark>➕ Чем она дополняет <b>RESTful</b></mark></li>
-            <li>🎏 Чем отличается от <b>GraphQL</b></li>
-            <li>⚠ Плюсы, минусы, подводные камни</li>
-        </ol>
-    </section>
-
     <!-- немного теории про виды API -->
     <section class="slide">
         <h2 class="shout">REST (2000)</h2>
@@ -231,15 +201,11 @@
         <img class="cover h" src="pictures/morti.png" alt="morti">
     </section>
 
-    <section class="slide clear">
-        <img class="cover" src="pictures/crud.png" alt="CRUD">
-    </section>
-
     <section class="slide">
-        <h2>Интерфейс</h2>
+        <h2>Интерфейс API</h2>
 
         <ol style="font-size: 1.2em;">
-            <li class="next">Создать статью</li>
+            <li>Создать статью</li>
             <li class="next">Получить список статей</li>
             <li class="next">Получить статью</li>
             <li class="next">Обновить статью</li>
@@ -255,7 +221,7 @@
                 <th>Путь</th>
                 <th>Действие</th>
             </tr>
-            <tr class="next">
+            <tr>
                 <td>GET</td>
                 <td>/createArticle</td>
                 <td>Создать статью</td>
@@ -326,20 +292,20 @@
     <section class="slide">
         <h2>Удаляем статью</h2>
         <pre>
-            <code class="next"><mark>DELETE /articles/1</mark> HTTP/1.1</code>
-            <code class="next">Accept: <mark>application/json</mark></code>
+            <code><mark>DELETE /articles/1</mark> HTTP/1.1</code>
+            <code>Accept: <mark>application/json</mark></code>
         </pre>
-        <pre>
-            <code class="next">HTTP/1.1 200 OK</code>
-            <code class="next">Content-Type: <mark>application/json</mark></code>
-            <code class="next">null</code>
+        <pre class="next">
+            <code >HTTP/1.1 200 OK</code>
+            <code>Content-Type: <mark>application/json</mark></code>
+            <code>null</code>
         </pre>
     </section>
 
     <section class="slide">
         <h2>MIME-типы</h2>
         <ul>
-            <li class="next">text/plain</li>
+            <li>text/plain</li>
             <li class="next">application/octet-stream</li>
             <li class="next">application/pdf</li>
             <li class="next">image/png</li>
@@ -377,14 +343,14 @@
     <section class="slide">
         <h2>Создание сущности</h2>
         <pre>
-            <code class="next">POST /articles HTTP/1.1</code>
-            <code class="next">Content-Type: application/json</code>
-            <code class="next">{ "id": 1, "title": "Про JSON:API"}</code>
+            <code>POST /articles HTTP/1.1</code>
+            <code>Content-Type: application/json</code>
+            <code>{ "id": 1, "title": "Про JSON:API"}</code>
         </pre>
-        <pre>
-            <code class="next"><mark>HTTP/1.1 422 Unprocessable Entity</mark></code>
-            <code class="next"><mark>HTTP/1.1 403 Forbidden</mark></code>
-            <code class="next"><mark>HTTP/1.1 500 Internal Server Error</mark></code>
+        <pre class="next">
+            <code><mark>HTTP/1.1 422 Unprocessable Entity</mark></code>
+            <code><mark>HTTP/1.1 403 Forbidden</mark></code>
+            <code><mark>HTTP/1.1 500 Internal Server Error</mark></code>
         </pre>
     </section>
 
@@ -395,13 +361,13 @@
     <section class="slide">
         <h2>👌 После</h2>
         <pre>
-            <code class="next">HTTP/1.1 422 Unprocessable Entity</code>
-            <code class="next">Content-Type: application/json</code>
-            <code class="next"> </code>
-            <code class="next">{ "errors": [{</code>
-            <code class="next">    "status": "422",</code>
-            <code class="next">    <mark>"title":  "Title already exist",</mark></code>
-            <code class="next">}]}</code>
+            <code>HTTP/1.1 422 Unprocessable Entity</code>
+            <code>Content-Type: application/json</code>
+            <code> </code>
+            <code>{ "errors": [{</code>
+            <code>    "status": "422",</code>
+            <code>    <mark>"title":  "Title already exist",</mark></code>
+            <code>}]}</code>
         </pre>
     </section>
 
@@ -412,15 +378,15 @@
     <section class="slide">
         <h2>Запрос списка</h2>
         <pre>
-            <code class="next"><mark>GET /articles</mark> HTTP/1.1</code>
-            <code class="next">Content-Type: <mark>application/json</mark></code>
+            <code><mark>GET /articles</mark> HTTP/1.1</code>
+            <code>Content-Type: <mark>application/json</mark></code>
         </pre>
-        <pre>
-            <code class="next">HTTP/1.1 200 OK</code>
-            <code class="next">[</code>
-            <code class="next">  { "id": 1, "title": "Про JSON:API"},</code>
-            <code class="next">  { "id": 2, "title": "Про XML-RPC"}</code>
-            <code class="next">]</code>
+        <pre class="next">
+            <code>HTTP/1.1 200 OK</code>
+            <code>[</code>
+            <code>  { "id": 1, "title": "Про JSON:API"},</code>
+            <code>  { "id": 2, "title": "Про XML-RPC"}</code>
+            <code>]</code>
         </pre>
     </section>
 
@@ -431,15 +397,15 @@
     <section class="slide">
         <h2>👌 После</h2>
         <pre>
-            <code class="next">GET /articles?<mark>page[size]=30</mark>&<mark>page[number]=2</mark></code>
-            <code class="next">Content-Type: application/json</code>
+            <code>GET /articles?<mark>page[size]=30</mark>&<mark>page[number]=2</mark></code>
+            <code>Content-Type: application/json</code>
         </pre>
-        <pre>
-            <code class="next">HTTP/1.1 200 OK</code>
-            <code class="next">{</code>
-            <code class="next">  "data": [{ "id": 1, "title": "JSON:API"}, ...],</code>
-            <code class="next">  "meta": { <mark>"count": 10080</mark> }</code>
-            <code class="next">}</code>
+        <pre class="next">
+            <code>HTTP/1.1 200 OK</code>
+            <code>{</code>
+            <code>  "data": [{ "id": 1, "title": "JSON:API"}, ...],</code>
+            <code>  "meta": { <mark>"count": 10080</mark> }</code>
+            <code>}</code>
         </pre>
     </section>
 
@@ -490,21 +456,21 @@
     <section class="slide">
         <h2>Запрос списка со связями</h2>
         <pre>
-            <code class="next">GET /articles?<mark>include=author</mark></code>
-            <code class="next">Content-Type: application/json</code>
+            <code>GET /articles?<mark>include=author</mark></code>
+            <code>Content-Type: application/json</code>
         </pre>
     </section>
 
     <section class="slide">
         <h2>👌 Решение: запрос списка со связями</h2>
         <pre>
-            <code class="next">HTTP/1.1 200 OK</code>
-            <code class="next">{ "data": [{</code>
-            <code class="next">  { attributes: { "id": 1, "title": "JSON:API" },</code>
-            <code class="next">  { relationships: {</code>
-            <code class="next">    <mark>"author": { "id": 1, "name": "Avdeev" } }</mark></code>
-            <code class="next">  }, ...</code>
-            <code class="next">}]}</code>
+            <code>HTTP/1.1 200 OK</code>
+            <code>{ "data": [{</code>
+            <code>  { attributes: { "id": 1, "title": "JSON:API" },</code>
+            <code>  { relationships: {</code>
+            <code>    <mark>"author": { "id": 1, "name": "Avdeev" } }</mark></code>
+            <code>  }, ...</code>
+            <code>}]}</code>
         </pre>
     </section>
 
@@ -516,14 +482,14 @@
 
     <section class="slide">
         <h2>👌 Решение: нормализация данных</h2>
-        <pre>
-            <code class="next">HTTP/1.1 200 OK</code>
-            <code class="next">{ "data": [{</code>
-            <code class="next">    "id": "1", <mark>"type": "article"</mark>,</code>
-            <code class="next">    "attributes": { "title": "JSON:API" },</code>
-            <code class="next">    "relationships": { ... }</code>
-            <code class="next">  }, ... ]</code>
-            <code class="next">}</code>
+        <pre class="next">
+            <code>HTTP/1.1 200 OK</code>
+            <code>{ "data": [{</code>
+            <code>    "id": "1", <mark>"type": "article"</mark>,</code>
+            <code>    "attributes": { "title": "JSON:API" },</code>
+            <code>    "relationships": { ... }</code>
+            <code>  }, ... ]</code>
+            <code>}</code>
         </pre>
     </section>
 
@@ -684,16 +650,6 @@
     </section>
 
     <section class="slide">
-        <h2>О чём будем говорить</h2>
-        <ol style="font-size: 1.5em">
-            <li>☯ В чём суть спецификации <b>JSON:API</b></li>
-            <li>➕ Чем она дополняет <b>RESTful</b></li>
-            <li><mark>🎏 Чем отличается от <b>GraphQL</b></mark></li>
-            <li>⚠ Плюсы, минусы, подводные камни</li>
-        </ol>
-    </section>
-
-    <section class="slide">
         <h2 class="shout">Всем</h2>
     </section>
 
@@ -713,16 +669,6 @@
         <div style="font-size: 2.5em; text-align: center; line-height: 1.5em; margin-top: 75px;">
             <b>Прогрессивное улучшение</b><br>vs<br><b>Большой взрыв</b>
         </div>
-    </section>
-
-    <section class="slide">
-        <h2>О чём будем говорить</h2>
-        <ol style="font-size: 1.5em">
-            <li>☯ В чём суть спецификации <b>JSON:API</b></li>
-            <li>➕ Чем она дополняет <b>RESTful</b></li>
-            <li>🎏 Чем отличается от <b>GraphQL</b></li>
-            <li><mark>⚠ Плюсы, минусы, подводные камни</mark></li>
-        </ol>
     </section>
 
     <section class="slide">
