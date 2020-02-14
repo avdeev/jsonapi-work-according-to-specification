@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>JSON API &mdash; работаем по спецификации - Алексей Авдеев</title>
+    <title>JSON:API &mdash; работаем по спецификации - Алексей Авдеев</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="shower/themes/ribbon/styles/styles.css">
@@ -12,13 +12,14 @@
         }
 
         .progress::before {
-            background-color: #fa1100;
+            background-color: #bb4093;
         }
 
         .slide {
             padding-top: 51px;
-            background: #fff url(pictures/fcconf_bg.png) no-repeat;
-            background-size: cover;
+            background: #fff url(pictures/avito-tech.png) no-repeat;
+            background-size: 100px;
+            background-position: calc(100% - 15px) calc(100% - 15px);
         }
 
         .slide.clear {
@@ -38,21 +39,28 @@
 <body class="shower list">
 
     <header class="caption">
-        <h1>JSON API &mdash; работаем по спецификации</h1>
+        <h1>JSON:API &mdash; работаем по спецификации</h1>
         <p><a href="https://alexey-avdeev.com/">Алексей Авдеев</a>, <a href="https://neuron.digital/">Neuron.Digital</a></p>
     </header>
 
     <section class="slide clear" id="cover">
-        <h2>JSON API &mdash; работаем по спецификации</h2>
-        <p><a href="https://alexey-avdeev.com/">Алексей Авдеев</a>, <a href="https://neuron.digital/">Neuron.Digital</a></p>
         <figure>
-            <img class="cover h" src="pictures/fcconf_title.png" alt="FrontendConf Background">
+            <img src="pictures/Avito_frontend_meetup.png" alt="Avito.Tech Background">
         </figure>
+        <div style="text-align: center; padding-bottom: 50px;">
+            <h2>JSON:API &mdash; работаем по спецификации</h2>
+            <p><a href="https://alexey-avdeev.com/">Алексей Авдеев</a>, <a href="https://neuron.digital/">Neuron.Digital</a></p>
+        </div>
         <style>
+            #cover {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
             #cover h2 {
                 margin: 0;
                 color: #000;
-                font-size:60px;
+                font-size:90px;
             }
             #cover p {
                 margin: 10px 0 0;
@@ -62,19 +70,62 @@
             #cover p a {
                 color: #000;
             }
+            #cover img {
+                width: 100%;
+            }
         </style>
     </section>
 
     <section class="slide">
-        <h2>👨‍💻 О себе</h2>
-        <ol>
-            <li>👨 Алексей Авдеев (<a href="https://github.com/avdeev">https://github.com/avdeev</a>)</li>
-            <li class="next">🏙️ Из Нижнего Новгорода, работаю в Москве</li>
-            <li class="next">🌐 <a href="https://neuron.digital/">Neuron.Digital</a></li>
-            <li class="next">👔 Руковожу командой из 8 фронтенд-разработчиков</li>
-            <li class="next">👴 Программирую с 2002 года</li>
-            <li class="next">🤹 Сейчас активно использую React</li>
+        <h2>Граммар-наци</h2>
+
+        <div style="font-size: 2em; text-align: center; line-height: 1.5em;">
+            <b>JSONAPI</b><br><b>JSON API</b><br><b>JSON-API</b><br><b>JSON:API</b>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>Граммар-наци</h2>
+
+        <div style="font-size: 2em; text-align: center; line-height: 1.5em;">
+            <b>JSONAPI</b><br><b>JSON API</b><br><b>JSON-API</b><br><mark><b>JSON:API</b></mark>
+        </div>
+    </section>
+
+    <section class="slide">
+        <img class="cover h" src="pictures/jsonapi-pr.png" alt="bellefonte-nuclear-power-plant">
+    </section>
+
+    <section class="slide">
+        <h2>О чём будем говорить</h2>
+        <ol style="font-size: 1.5em">
+            <li class="next">☯ В чём суть спецификации <b>JSON:API</b></li>
+            <li class="next">➕ Чем она дополняет <b>RESTful</b></li>
+            <li class="next">🎏 Чем отличается от <b>GraphQL</b></li>
+            <li class="next">⚠ Плюсы, минусы, подводные камни</li>
         </ol>
+    </section>
+
+    <section class="slide">
+        <h2>О чём будем говорить</h2>
+        <ol style="font-size: 1.5em">
+            <li><mark>☯ В чём суть спецификации <b>JSON:API</b></mark></li>
+            <li>➕ Чем она дополняет <b>RESTful</b></li>
+            <li>🎏 Чем отличается от <b>GraphQL</b></li>
+            <li>⚠ Плюсы, минусы, подводные камни</li>
+        </ol>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout" style="font-size: 3em; padding: 0 40px; width: calc(100% - 80px);">
+            A&nbsp;SPECIFICATION FOR BUILDING APIS IN&nbsp;JSON
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout" style="font-size: 3em; padding: 0 40px; width: calc(100% - 80px);">
+            JSON:API can be&nbsp;your<br>anti-bikeshedding tool
+        </h2>
     </section>
 
     <!-- начинаем с проблемы -->
@@ -87,15 +138,12 @@
 
     <section class="slide">
         <h2 class="shout" style="font-size: 3em; padding: 0 40px; width: calc(100% - 80px);">
-            Время, потраченное на обсуждение пункта, обратно пропорционально рассматриваемой сумме
+            Время, потраченное на обсуждение пункта, обратно пропорционально рассматриваемой стоимости
         </h2>
     </section>
 
     <section class="slide clear">
         <img class="cover w" src="pictures/bellefonte-nuclear-power-plant.jpg" alt="bellefonte-nuclear-power-plant">
-        <h2 class="shout" style="color: #fff; font-size: 3em; text-shadow: 4px 4px 0 rgba(0, 0, 0, 1);">
-            The Bikeshed Effect
-        </h2>
     </section>
 
     <section class="slide">
@@ -123,34 +171,33 @@
         <h2>Что важнее?</h2>
 
         <div style="font-size: 3em; text-align: center; line-height: 1.5em;">
-            <b>Формат API</b><br>или<br><b>Бизнес задачи</b>
+            <b>Формат API</b><br>или<br><b>Ваше приложение</b>
         </div>
     </section>
 
     <section class="slide">
-        <h2 class="shout">API - велосипедный сарай</h2>
+        <h2 class="shout" style="font-size: 3em; padding: 0 40px; width: calc(100% - 80px);">🚲 API&nbsp;&mdash; велосипедный сарай</h2>
     </section>
 
     <section class="slide">
         <h2>Как избежать</h2>
 
         <ol>
-            <li class="next">Не слушать <b>советы</b></li>
-            <li class="next">Делать так, как <b>Вы</b> хотите</li>
-            <li class="next">Спросить себя <b>важно</b> ли это?</li>
-            <li class="next">Использовать <b>объективные</b> критерии</li>
-            <li class="next"><b>Не говорить</b> о том, о чём не хочешь слушать советы</li>
-            <li class="next"><b>Отпустите</b></li>
-            <li class="next">Выберите <b>любой</b> предлагаемый вариант</li>
+            <li class="next">Не слушайте <b>советы</b></li>
+            <li class="next">Делайте так, как <b>Вы</b> хотите</li>
+            <li class="next"><b>Не говорите</b> о том, о чём не хотите слушать советы</li>
+            <li class="next"><mark>Используйте <b>объективные</b> критерии</mark></li>
         </ol>
     </section>
 
     <section class="slide">
-        <h2 class="shout" style="font-size: 4em;">Anti-bikeshedding tool</h2>
-    </section>
-
-    <section class="slide">
-        <h2 class="shout">Начинаем проектировать</h2>
+        <h2>О чём будем говорить</h2>
+        <ol style="font-size: 1.5em">
+            <li>☯ В чём суть спецификации <b>JSON:API</b></li>
+            <li><mark>➕ Чем она дополняет <b>RESTful</b></mark></li>
+            <li>🎏 Чем отличается от <b>GraphQL</b></li>
+            <li>⚠ Плюсы, минусы, подводные камни</li>
+        </ol>
     </section>
 
     <!-- немного теории про виды API -->
@@ -341,7 +388,7 @@
         <pre>
             <code class="next">POST /articles HTTP/1.1</code>
             <code class="next">Content-Type: application/json</code>
-            <code class="next">{ "id": 1, "title": "Про JSON API"}</code>
+            <code class="next">{ "id": 1, "title": "Про JSON:API"}</code>
         </pre>
         <pre>
             <code class="next"><mark>HTTP/1.1 422 Unprocessable Entity</mark></code>
@@ -372,10 +419,6 @@
     </section>
 
     <section class="slide">
-        <img class="cover" src="pictures/pagination.png" alt="Паджинация">
-    </section>
-
-    <section class="slide">
         <h2>Запрос списка</h2>
         <pre>
             <code class="next"><mark>GET /articles</mark> HTTP/1.1</code>
@@ -384,10 +427,14 @@
         <pre>
             <code class="next">HTTP/1.1 200 OK</code>
             <code class="next">[</code>
-            <code class="next">  { "id": 1, "title": "Про JSON API"},</code>
+            <code class="next">  { "id": 1, "title": "Про JSON:API"},</code>
             <code class="next">  { "id": 2, "title": "Про XML-RPC"}</code>
             <code class="next">]</code>
         </pre>
+    </section>
+
+    <section class="slide">
+        <img class="cover" src="pictures/pagination.png" alt="Паджинация">
     </section>
 
     <section class="slide">
@@ -399,7 +446,7 @@
         <pre>
             <code class="next">HTTP/1.1 200 OK</code>
             <code class="next">{</code>
-            <code class="next">  "data": [{ "id": 1, "title": "JSON API"}, ...],</code>
+            <code class="next">  "data": [{ "id": 1, "title": "JSON:API"}, ...],</code>
             <code class="next">  "meta": { <mark>"count": 10080</mark> }</code>
             <code class="next">}</code>
         </pre>
@@ -414,7 +461,7 @@
         <pre>
             <code>HTTP/1.1 200 OK</code>
             <code>{</code>
-            <code>  "data": [{ "id": 1, "title": "JSON API"}, ...],</code>
+            <code>  "data": [{ "id": 1, "title": "JSON:API"}, ...],</code>
             <code>  "meta": { "count": 10080 }</code>
             <code>}</code>
         </pre>
@@ -429,7 +476,7 @@
         <pre>
             <code>HTTP/1.1 200 OK</code>
             <code>{</code>
-            <code>  "data": [{ "id": 1, "title": "JSON API"}, ...],</code>
+            <code>  "data": [{ "id": 1, "title": "JSON:API"}, ...],</code>
             <code>  "meta": { "count": 10080 }</code>
             <code>}</code>
         </pre>
@@ -446,7 +493,7 @@
     </section>
 
     <section class="slide">
-        <h2 class="shout">Добавляем связи</h2>
+        <h2 class="shout">Добавляем<br>связи</h2>
     </section>
 
     <section class="slide">
@@ -462,7 +509,7 @@
         <pre>
             <code class="next">HTTP/1.1 200 OK</code>
             <code class="next">{ "data": [{</code>
-            <code class="next">  { attributes: { "id": 1, "title": "JSON API" },</code>
+            <code class="next">  { attributes: { "id": 1, "title": "JSON:API" },</code>
             <code class="next">  { relationships: {</code>
             <code class="next">    <mark>"author": { "id": 1, "name": "Avdeev" } }</mark></code>
             <code class="next">  }, ...</code>
@@ -482,7 +529,7 @@
             <code class="next">HTTP/1.1 200 OK</code>
             <code class="next">{ "data": [{</code>
             <code class="next">    "id": "1", <mark>"type": "article"</mark>,</code>
-            <code class="next">    "attributes": { "title": "JSON API" },</code>
+            <code class="next">    "attributes": { "title": "JSON:API" },</code>
             <code class="next">    "relationships": { ... }</code>
             <code class="next">  }, ... ]</code>
             <code class="next">}</code>
@@ -531,14 +578,14 @@
             <code>HTTP/1.1 200 OK</code>
             <code>{ "data": [{</code>
             <code>    "id": "1", "type": "article",</code>
-            <code>    "attributes": { <mark>"title": "Про JSON API"</mark> },</code>
+            <code>    "attributes": { <mark>"title": "Про JSON:API"</mark> },</code>
             <code>  }, ... ]</code>
             <code>}</code>
         </pre>
     </section>
 
     <section class="slide">
-        <h2 class="shout">Поиск по статьям</h2>
+        <h2 class="shout">Поиск<br>по&nbsp;статьям</h2>
     </section>
 
     <section class="slide">
@@ -642,11 +689,53 @@
     </section>
 
     <section class="slide">
-        <img class="place" width="640" src="pictures/jsonapi.png" alt="JSON API">
+        <img class="place" width="640" src="pictures/jsonapi.png" alt="JSON:API">
     </section>
 
     <section class="slide">
-        <h2>Экосистема JSON API</h2>
+        <h2>О чём будем говорить</h2>
+        <ol style="font-size: 1.5em">
+            <li>☯ В чём суть спецификации <b>JSON:API</b></li>
+            <li>➕ Чем она дополняет <b>RESTful</b></li>
+            <li><mark>🎏 Чем отличается от <b>GraphQL</b></mark></li>
+            <li>⚠ Плюсы, минусы, подводные камни</li>
+        </ol>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Всем</h2>
+    </section>
+
+    <section class="slide">
+        <div style="font-size: 3em; text-align: center; line-height: 1.5em; margin-top: 50px;">
+            <b>Полная спецификация</b><br>vs<br><b>Язык запросов</b>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div style="font-size: 3em; text-align: center; line-height: 1.5em; margin-top: 50px;">
+            <b>REST</b><br>vs<br><b>не REST</b>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div style="font-size: 2.5em; text-align: center; line-height: 1.5em; margin-top: 75px;">
+            <b>Прогрессивное улучшение</b><br>vs<br><b>Большой взрыв</b>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>О чём будем говорить</h2>
+        <ol style="font-size: 1.5em">
+            <li>☯ В чём суть спецификации <b>JSON:API</b></li>
+            <li>➕ Чем она дополняет <b>RESTful</b></li>
+            <li>🎏 Чем отличается от <b>GraphQL</b></li>
+            <li><mark>⚠ Плюсы, минусы, подводные камни</mark></li>
+        </ol>
+    </section>
+
+    <section class="slide">
+        <h2>Экосистема JSON:API</h2>
         <p>Список реализаций спефикации &mdash; <a href="http://jsonapi.org/implementations/" target="_blank">http://jsonapi.org/implementations/</a></p>
         <ol>
             <li class="next">170 различных реализаций</li>
@@ -657,7 +746,7 @@
     </section>
 
     <section class="slide">
-        <h2>➕ Плюсы JSON API</h2>
+        <h2>➕ Плюсы JSON:API</h2>
 
         <ol>
             <li class="next">Общее соглашение для всех</li>
@@ -671,7 +760,7 @@
     </section>
 
     <section class="slide">
-        <h2>🤯 Минусы JSON API</h2>
+        <h2>🤯 Минусы JSON:API</h2>
 
         <ol>
             <li class="next"><b>Фронтенд</b>: надо парсить ответы</li>
@@ -684,7 +773,7 @@
     </section>
 
     <section class="slide">
-        <h2 class="shout">Подводные <br>камни JSON API</h2>
+        <h2 class="shout">Подводные <br>камни JSON:API</h2>
     </section>
 
     <section class="slide">
@@ -763,7 +852,7 @@
     </section>
 
     <section class="slide">
-        <h2 class="shout">Swagger</h2>
+        <h2 class="shout">OpenAPI<br>(Swagger)</h2>
     </section>
 
     <section class="slide clear" style="background-color: #fafafa;">
@@ -775,7 +864,7 @@
     </section>
 
     <section class="slide clear" style="background-color: #eff7ff;">
-        <img class="cover" src="pictures/swagger.png" alt="JSON API Swagger">
+        <img class="cover" src="pictures/swagger.png" alt="JSON:API Swagger">
     </section>
 
     <section class="slide">
@@ -814,43 +903,6 @@
     </section>
 
     <section class="slide">
-        <h2 class="shout">Что с GraphQL?</h2>
-    </section>
-
-    <section class="slide">
-        <h2>Высокий порог входа</h2>
-        <img class="place" src="pictures/v2k1_EoWF88.jpg" alt="стримерша">
-    </section>
-
-    <section class="slide">
-        <h2>💥 Эффект большого взрыва</h2>
-        <ol style="font-size: 1.5em">
-            <li class="next">Нет никакого API</li>
-            <li class="next">💥</li>
-            <li class="next">GraphQL</li>
-        </ol>
-    </section>
-
-    <section class="slide">
-        <h2>Или</h2>
-        <ol style="font-size: 1.5em">
-            <li class="next">🦎 Простейший RESTful</li>
-            <li class="next">🐊 Прогрессивное улучшение</li>
-            <li class="next">🦖 JSON API</li>
-        </ol>
-    </section>
-
-    <section class="slide">
-        <h2>🤯 Ад на бэкенде</h2>
-        <ol style="font-size: 1.5em">
-            <li class="next">Контроль вложенности</li>
-            <li class="next">Рекурсия</li>
-            <li class="next">Ограничение частоты</li>
-            <li class="next">Контроль доступа</li>
-        </ol>
-    </section>
-
-    <section class="slide">
         <h2>За подробностями</h2>
         <ol>
             <li><a href="http://jsonapi.org" target="_blank">http://jsonapi.org</a></li>
@@ -863,6 +915,18 @@
 
     <section class="slide clear" style="background-color: #c30400;">
         <img class="cover h" src="pictures/4df7ea9931f24719762911e4af849a09.png" alt="bike-shedding">
+    </section>
+
+    <section class="slide">
+        <h2>👏 Спасибо!</h2>
+
+        <ul>
+            <li>👨 Алексей Авдеев</li>
+            <li>🌐 <a href="https://github.com/avdeev">https://github.com/avdeev</a></li>
+            <li>🌐 <a href="https://neuron.digital/">Neuron.Digital</a></li>
+        </ul>
+
+        <img src="pictures/iam.jpg" alt="я" style="height: 250px; position: absolute; right: 80px; top: 141px;">
     </section>
 
     <footer class="badge">
