@@ -16,3 +16,5 @@
 [Расшифровка доклада на Habr](https://habr.com/ru/company/oleg-bunin/blog/433322/)
 
 [Доклад в программе Avito Frontend meetup](https://habr.com/ru/company/avito/blog/485196/)
+
+[Видео с Avito Frontend meetup](https://www.youtube.com/watch?v=AcX2MIzrbi8&list=WL&t=7671s)
