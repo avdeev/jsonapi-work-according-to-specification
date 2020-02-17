@@ -493,6 +493,22 @@
     </section>
 
     <section class="slide">
+        <h2>👌 А ещё можно вот так</h2>
+
+        <pre>
+            <code>GET /articles?<mark>include=author</mark> HTTP/1.1</code>
+        </pre>
+
+        <pre>
+            <code class="next">GET /articles?<mark>include=author,image</mark> HTTP/1.1</code>
+        </pre>
+
+        <pre>
+            <code class="next">GET /articles?<mark>include=author,author.avatar</mark> HTTP/1.1</code>
+        </pre>
+    </section>
+
+    <section class="slide">
         <h2>Проблема дублирования данных</h2>
         <p style="font-size: 40px;">Выведем 10 статей с указанием автора, у всех статей один автор</p>
         <p style="font-size: 40px;" class="next"><b>Итого: один автор включен в ответ 10 раз</b></p>
