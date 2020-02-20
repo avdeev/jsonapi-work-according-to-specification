@@ -17,4 +17,4 @@
 
 [Доклад в программе Avito Frontend meetup](https://habr.com/ru/company/avito/blog/485196/)
 
-[Видео с Avito Frontend meetup](https://www.youtube.com/watch?v=AcX2MIzrbi8&list=WL&t=7671s)
+[Видео с Avito Frontend meetup](https://youtu.be/JD3HLaLxUJ8)
