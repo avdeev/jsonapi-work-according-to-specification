@@ -1,113 +1,155 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="ru">
+  <head>
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-P6SW86D");
+    </script>
+    <!-- End Google Tag Manager -->
     <title>JSON:API &mdash; работаем по спецификации - Алексей Авдеев</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="shower/themes/ribbon/styles/styles.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="node_modules/shower-ribbon/styles/styles.css"
+    />
     <style>
-        .shower {
-            --slide-ratio: calc(16 / 9);
-            --ribbon-size: 40px;
-        }
+      .shower {
+        --slide-ratio: calc(16 / 9);
+        --ribbon-size: 40px;
+      }
 
-        .progress::before {
-            background-color: #bb4093;
-        }
+      .progress::before {
+        background-color: #bb4093;
+      }
 
-        .slide {
-            padding-top: 51px;
-            background: #fff url(pictures/avito-tech.png) no-repeat;
-            background-size: 100px;
-            background-position: calc(100% - 15px) calc(100% - 15px);
-        }
+      .slide {
+        padding-top: 51px;
+        background: #fff url(pictures/avito-tech.png) no-repeat;
+        background-size: 100px;
+        background-position: calc(100% - 15px) calc(100% - 15px);
+      }
 
-        .slide.clear {
-            background-image: none;
-        }
+      .slide.clear {
+        background-image: none;
+      }
 
-        .slide::after {
-            top: auto;
-            bottom: 0;
-            left: 40px;
-            right: auto;
-            color: initial;
-            background: none;
-        }
+      .slide::after {
+        top: auto;
+        bottom: 0;
+        left: 40px;
+        right: auto;
+        color: initial;
+        background: none;
+      }
 
-        .slide h2.shout {
-            color: black;
-        }
+      .slide h2.shout {
+        color: black;
+      }
     </style>
-</head>
-<body class="shower list">
-
+  </head>
+  <body class="shower list">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-P6SW86D"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <header class="caption">
-        <h1>JSON:API &mdash; работаем по спецификации</h1>
-        <p><a href="https://alexey-avdeev.com/">Алексей Авдеев</a>, <a href="https://neuron.digital/">Neuron.Digital</a></p>
+      <h1>JSON:API &mdash; работаем по спецификации</h1>
+      <p>
+        <a href="https://alexey-avdeev.com/">Алексей Авдеев</a>,
+        <a href="https://neuron.digital/">Neuron.Digital</a>
+      </p>
     </header>
 
     <section class="slide clear" id="cover">
-        <figure>
-            <img src="pictures/Avito_frontend_meetup.png" alt="Avito.Tech Background">
-        </figure>
-        <div style="text-align: center; padding-bottom: 50px;">
-            <h2>JSON:API &mdash; работаем по спецификации</h2>
-            <p><a href="https://alexey-avdeev.com/">Алексей Авдеев</a>, <a href="https://neuron.digital/">Neuron.Digital</a></p>
-        </div>
-        <style>
-            #cover {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-            }
-            #cover h2 {
-                margin: 0;
-                color: #000;
-                font-size:90px;
-            }
-            #cover p {
-                margin: 10px 0 0;
-                color: #000;
-                font-size: 30px;
-            }
-            #cover p a {
-                color: #000;
-            }
-            #cover img {
-                width: 100%;
-            }
-        </style>
+      <figure>
+        <img
+          src="pictures/Avito_frontend_meetup.png"
+          alt="Avito.Tech Background"
+        />
+      </figure>
+      <div style="text-align: center; padding-bottom: 50px">
+        <h2>JSON:API &mdash; работаем по спецификации</h2>
+        <p>
+          <a href="https://alexey-avdeev.com/">Алексей Авдеев</a>,
+          <a href="https://neuron.digital/">Neuron.Digital</a>
+        </p>
+      </div>
+      <style>
+        #cover {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        }
+        #cover h2 {
+          margin: 0;
+          color: #000;
+          font-size: 90px;
+        }
+        #cover p {
+          margin: 10px 0 0;
+          color: #000;
+          font-size: 30px;
+        }
+        #cover p a {
+          color: #000;
+        }
+        #cover img {
+          width: 100%;
+        }
+      </style>
     </section>
 
     <section class="slide">
-        <h2>Граммар-наци</h2>
+      <h2>Граммар-наци</h2>
 
-        <div style="font-size: 2em; text-align: center; line-height: 1.5em;">
-            <b>JSONAPI</b><br><b>JSON API</b><br><b>JSON-API</b><br><b>JSON:API</b>
-        </div>
+      <div style="font-size: 2em; text-align: center; line-height: 1.5em">
+        <b>JSONAPI</b><br /><b>JSON API</b><br /><b>JSON-API</b><br /><b
+          >JSON:API</b
+        >
+      </div>
     </section>
 
     <section class="slide">
-        <h2>Граммар-наци</h2>
+      <h2>Граммар-наци</h2>
 
-        <div style="font-size: 2em; text-align: center; line-height: 1.5em;">
-            <b>JSONAPI</b><br><b>JSON API</b><br><b>JSON-API</b><br><mark><b>JSON:API</b></mark>
-        </div>
+      <div style="font-size: 2em; text-align: center; line-height: 1.5em">
+        <b>JSONAPI</b><br /><b>JSON API</b><br /><b>JSON-API</b><br /><mark
+          ><b>JSON:API</b></mark
+        >
+      </div>
     </section>
 
     <section class="slide">
-        <img class="cover h" src="pictures/jsonapi-pr.png" alt="jsonapi-pr">
+      <img class="cover h" src="pictures/jsonapi-pr.png" alt="jsonapi-pr" />
     </section>
 
     <section class="slide">
-        <img class="cover h" src="pictures/jsonapi-site.png" alt="jsonapi-site">
+      <img class="cover h" src="pictures/jsonapi-site.png" alt="jsonapi-site" />
     </section>
 
     <section class="slide">
-        <h2 class="shout" style="font-size: 3em; padding: 0 40px; width: calc(100% - 80px);">
-            A&nbsp;SPECIFICATION FOR BUILDING APIS IN&nbsp;JSON
-        </h2>
+      <h2
+        class="shout"
+        style="font-size: 3em; padding: 0 40px; width: calc(100% - 80px)"
+      >
+        A&nbsp;SPECIFICATION FOR BUILDING APIS IN&nbsp;JSON
+      </h2>
     </section>
 
     <!--
@@ -203,107 +245,105 @@
     -->
 
     <section class="slide">
-        <img class="cover h" src="pictures/morti.png" alt="morti">
-        <h2 class="shout" style="font-size: 4em; margin-top: 200px;">
-            Junior
-        </h2>
+      <img class="cover h" src="pictures/morti.png" alt="morti" />
+      <h2 class="shout" style="font-size: 4em; margin-top: 200px">Junior</h2>
     </section>
 
     <section class="slide">
-        <img class="cover h" src="pictures/blogexample.png" alt="blogexample">
+      <img class="cover h" src="pictures/blogexample.png" alt="blogexample" />
     </section>
 
     <section class="slide">
-        <h2>Интерфейс API</h2>
+      <h2>Интерфейс API</h2>
 
-        <ol style="font-size: 1.2em;">
-            <li>Создать статью</li>
-            <li class="next">Получить список статей</li>
-            <li class="next">Получить статью</li>
-            <li class="next">Обновить статью</li>
-            <li class="next">Удалить статью</li>
-        </ol>
+      <ol style="font-size: 1.2em">
+        <li>Создать статью</li>
+        <li class="next">Получить список статей</li>
+        <li class="next">Получить статью</li>
+        <li class="next">Обновить статью</li>
+        <li class="next">Удалить статью</li>
+      </ol>
     </section>
 
     <section class="slide">
-        <h2>Интерфейс</h2>
-        <table class="striped">
-            <tr>
-                <th scope="col">Метод</th>
-                <th>Путь</th>
-                <th>Действие</th>
-            </tr>
-            <tr>
-                <td>GET</td>
-                <td>/createArticle</td>
-                <td>Создать статью</td>
-            </tr>
-            <tr class="next">
-                <td>GET</td>
-                <td>/articlesList</td>
-                <td>Получить список статей</td>
-            </tr>
-            <tr class="next">
-                <td>GET</td>
-                <td>/articles/getById?id=1</td>
-                <td>Получить статью</td>
-            </tr>
-            <tr class="next">
-                <td>GET</td>
-                <td>/articles/update?newTitle=Заголовок</td>
-                <td>Обновить статью</td>
-            </tr>
-            <tr class="next">
-                <td>LOL</td>
-                <td>/deleteArticle?id=1</td>
-                <td>Удалить статью</td>
-            </tr>
-        </table>
+      <h2>Интерфейс</h2>
+      <table class="striped">
+        <tr>
+          <th scope="col">Метод</th>
+          <th>Путь</th>
+          <th>Действие</th>
+        </tr>
+        <tr>
+          <td>GET</td>
+          <td>/createArticle</td>
+          <td>Создать статью</td>
+        </tr>
+        <tr class="next">
+          <td>GET</td>
+          <td>/articlesList</td>
+          <td>Получить список статей</td>
+        </tr>
+        <tr class="next">
+          <td>GET</td>
+          <td>/articles/getById?id=1</td>
+          <td>Получить статью</td>
+        </tr>
+        <tr class="next">
+          <td>GET</td>
+          <td>/articles/update?newTitle=Заголовок</td>
+          <td>Обновить статью</td>
+        </tr>
+        <tr class="next">
+          <td>LOL</td>
+          <td>/deleteArticle?id=1</td>
+          <td>Удалить статью</td>
+        </tr>
+      </table>
     </section>
 
     <section class="slide">
-        <h2>👌 Правильно</h2>
-        <table class="striped">
-            <tr>
-                <th scope="col">Метод</th>
-                <th>Путь</th>
-                <th>Действие</th>
-            </tr>
-            <tr>
-                <td>POST</td>
-                <td>/articles</td>
-                <td>Создать статью</td>
-            </tr>
-            <tr>
-                <td>GET</td>
-                <td>/articles</td>
-                <td>Получить список статей</td>
-            </tr>
-            <tr>
-                <td>GET</td>
-                <td>/articles/1</td>
-                <td>Получить статью</td>
-            </tr>
-            <tr>
-                <td>PATCH</td>
-                <td>/articles/1</td>
-                <td>Обновить статью</td>
-            </tr>
-            <tr>
-                <td>DELETE</td>
-                <td>/articles/1</td>
-                <td>Удалить статью</td>
-            </tr>
-        </table>
+      <h2>👌 Правильно</h2>
+      <table class="striped">
+        <tr>
+          <th scope="col">Метод</th>
+          <th>Путь</th>
+          <th>Действие</th>
+        </tr>
+        <tr>
+          <td>POST</td>
+          <td>/articles</td>
+          <td>Создать статью</td>
+        </tr>
+        <tr>
+          <td>GET</td>
+          <td>/articles</td>
+          <td>Получить список статей</td>
+        </tr>
+        <tr>
+          <td>GET</td>
+          <td>/articles/1</td>
+          <td>Получить статью</td>
+        </tr>
+        <tr>
+          <td>PATCH</td>
+          <td>/articles/1</td>
+          <td>Обновить статью</td>
+        </tr>
+        <tr>
+          <td>DELETE</td>
+          <td>/articles/1</td>
+          <td>Удалить статью</td>
+        </tr>
+      </table>
     </section>
 
     <section class="slide">
-        <h2>Удаляем статью</h2>
-        <pre>
+      <h2>Удаляем статью</h2>
+      <pre>
             <code><mark>DELETE /articles/1</mark> HTTP/1.1</code>
             <code>Accept: <mark>application/json</mark></code>
         </pre>
-        <pre class="next">
+      <pre class="next">
             <code >HTTP/1.1 200 OK</code>
             <code>Content-Type: <mark>application/json</mark></code>
             <code>&lt;ПУСТАЯ СТРОКА&gt;</code>
@@ -311,61 +351,74 @@
     </section>
 
     <section class="slide">
-        <h2>MIME-типы</h2>
-        <ul>
-            <li>text/plain</li>
-            <li>application/octet-stream</li>
-            <li>application/pdf</li>
-            <li>image/png</li>
-            <li>application/json</li>
-            <li>application/xml</li>
-            <li>application/vnd.ms-excel</li>
-        </ul>
+      <h2>MIME-типы</h2>
+      <ul>
+        <li>text/plain</li>
+        <li>application/octet-stream</li>
+        <li>application/pdf</li>
+        <li>image/png</li>
+        <li>application/json</li>
+        <li>application/xml</li>
+        <li>application/vnd.ms-excel</li>
+      </ul>
     </section>
 
     <section class="slide">
-        <img class="place" src="pictures/mime.jpg" alt="mime types">
+      <img class="place" src="pictures/mime.jpg" alt="mime types" />
     </section>
 
     <section class="slide">
-        <h2 class="shout" style="font-size: 3em; padding: 0 40px; width: calc(100% - 80px);">Коды ответов</h2>
+      <h2
+        class="shout"
+        style="font-size: 3em; padding: 0 40px; width: calc(100% - 80px)"
+      >
+        Коды ответов
+      </h2>
     </section>
 
-    <section class="slide clear" style="background-color: #000;">
-        <img class="place" width="600" src="pictures/200-OK-600x480.jpg" alt="200 OK Cat">
-    </section>
-
-    <section class="slide">
-        <h2>Что можно было</h2>
-
-        <ul>
-            <li>201 Created</li>
-            <li>202 Accepted</li>
-            <li>204 No Content</li>
-            <li>403 Forbidden</li>
-            <li>404 Not Found</li>
-            <li>409 Conflict</li>
-        </ul>
-    </section>
-
-    <section class="slide clear" style="background-color: #000;">
-        <img class="place" width="600" src="pictures/451.jpeg" alt="451 Cat">
+    <section class="slide clear" style="background-color: #000">
+      <img
+        class="place"
+        width="600"
+        src="pictures/200-OK-600x480.jpg"
+        alt="200 OK Cat"
+      />
     </section>
 
     <section class="slide">
-        <h2 class="shout" style="font-size: 3em; padding: 0 40px; width: calc(100% - 80px);">
-            Возвращайте ошибки
-        </h2>
+      <h2>Что можно было</h2>
+
+      <ul>
+        <li>201 Created</li>
+        <li>202 Accepted</li>
+        <li>204 No Content</li>
+        <li>403 Forbidden</li>
+        <li>404 Not Found</li>
+        <li>409 Conflict</li>
+      </ul>
+    </section>
+
+    <section class="slide clear" style="background-color: #000">
+      <img class="place" width="600" src="pictures/451.jpeg" alt="451 Cat" />
     </section>
 
     <section class="slide">
-        <h2>Создание сущности</h2>
-        <pre>
+      <h2
+        class="shout"
+        style="font-size: 3em; padding: 0 40px; width: calc(100% - 80px)"
+      >
+        Возвращайте ошибки
+      </h2>
+    </section>
+
+    <section class="slide">
+      <h2>Создание сущности</h2>
+      <pre>
             <code>POST /articles HTTP/1.1</code>
             <code>Content-Type: application/json</code>
             <code>{ "id": 1, "title": "Про JSON:API"}</code>
         </pre>
-        <pre>
+      <pre>
             <code class="next"><mark>HTTP/1.1 422 Unprocessable Entity</mark></code>
             <code class="next"><mark>HTTP/1.1 403 Forbidden</mark></code>
             <code class="next"><mark>HTTP/1.1 500 Internal Server Error</mark></code>
@@ -373,8 +426,8 @@
     </section>
 
     <section class="slide">
-        <h2>👌 После</h2>
-        <pre>
+      <h2>👌 После</h2>
+      <pre>
             <code>HTTP/1.1 422 Unprocessable Entity</code>
             <code>Content-Type: application/json</code>
             <code> </code>
@@ -386,18 +439,21 @@
     </section>
 
     <section class="slide">
-        <h2 class="shout" style="font-size: 3em; padding: 0 40px; width: calc(100% - 80px);">
-            Добавим паджинацию
-        </h2>
+      <h2
+        class="shout"
+        style="font-size: 3em; padding: 0 40px; width: calc(100% - 80px)"
+      >
+        Добавим паджинацию
+      </h2>
     </section>
 
     <section class="slide">
-        <h2>Запрос списка</h2>
-        <pre>
+      <h2>Запрос списка</h2>
+      <pre>
             <code><mark>GET /articles</mark> HTTP/1.1</code>
             <code>Content-Type: <mark>application/json</mark></code>
         </pre>
-        <pre class="next">
+      <pre class="next">
             <code>HTTP/1.1 200 OK</code>
             <code>[</code>
             <code>  { "id": 1, "title": "Про JSON:API"},</code>
@@ -407,16 +463,16 @@
     </section>
 
     <section class="slide">
-        <img class="cover" src="pictures/pagination.png" alt="Паджинация">
+      <img class="cover" src="pictures/pagination.png" alt="Паджинация" />
     </section>
 
     <section class="slide">
-        <h2>👌 После</h2>
-        <pre>
+      <h2>👌 После</h2>
+      <pre>
             <code>GET /articles?<mark>page[size]=30</mark>&<mark>page[number]=2</mark></code>
             <code>Content-Type: application/json</code>
         </pre>
-        <pre class="next">
+      <pre class="next">
             <code>HTTP/1.1 200 OK</code>
             <code>{</code>
             <code>  "data": [{ "id": 1, "title": "JSON:API"}, ...],</code>
@@ -426,12 +482,12 @@
     </section>
 
     <section class="slide">
-        <h2>👌 Или так</h2>
-        <pre>
+      <h2>👌 Или так</h2>
+      <pre>
             <code>GET /articles?<mark>page[offset]=30</mark>&<mark>page[limit]=30</mark></code>
             <code>Content-Type: application/json</code>
         </pre>
-        <pre>
+      <pre>
             <code>HTTP/1.1 200 OK</code>
             <code>{</code>
             <code>  "data": [{ "id": 1, "title": "JSON:API"}, ...],</code>
@@ -441,12 +497,12 @@
     </section>
 
     <section class="slide">
-        <h2>👌 Или так</h2>
-        <pre>
+      <h2>👌 Или так</h2>
+      <pre>
             <code>GET /articles?<mark>page[published_at]=1538332156</mark></code>
             <code>Content-Type: application/json</code>
         </pre>
-        <pre>
+      <pre>
             <code>HTTP/1.1 200 OK</code>
             <code>{</code>
             <code>  "data": [{ "id": 1, "title": "JSON:API"}, ...],</code>
@@ -456,32 +512,35 @@
     </section>
 
     <section class="slide">
-        <h2>Проблема N + 1</h2>
-        <p>Выведем 10 статей с указанием автора</p>
-        <ol>
-            <li class="next">1 запрос на получение статей</li>
-            <li class="next">10 запросов для получения авторов каждой статьи</li>
-        </ol>
-        <p class="next"><b>Итого: 11 запросов</b></p>
+      <h2>Проблема N + 1</h2>
+      <p>Выведем 10 статей с указанием автора</p>
+      <ol>
+        <li class="next">1 запрос на получение статей</li>
+        <li class="next">10 запросов для получения авторов каждой статьи</li>
+      </ol>
+      <p class="next"><b>Итого: 11 запросов</b></p>
     </section>
 
     <section class="slide">
-        <h2 class="shout" style="font-size: 3em; padding: 0 40px; width: calc(100% - 80px);">
-            Добавляем связи
-        </h2>
+      <h2
+        class="shout"
+        style="font-size: 3em; padding: 0 40px; width: calc(100% - 80px)"
+      >
+        Добавляем связи
+      </h2>
     </section>
 
     <section class="slide">
-        <h2>Запрос списка со связями</h2>
-        <pre>
+      <h2>Запрос списка со связями</h2>
+      <pre>
             <code>GET /articles?<mark>include=author</mark></code>
             <code>Content-Type: application/json</code>
         </pre>
     </section>
 
     <section class="slide">
-        <h2>👌 Решение: запрос списка со связями</h2>
-        <pre>
+      <h2>👌 Решение: запрос списка со связями</h2>
+      <pre>
             <code>HTTP/1.1 200 OK</code>
             <code>{ "data": [{</code>
             <code>  { attributes: { "id": 1, "title": "JSON:API" },</code>
@@ -493,30 +552,34 @@
     </section>
 
     <section class="slide">
-        <h2>👌 А ещё можно вот так</h2>
+      <h2>👌 А ещё можно вот так</h2>
 
-        <pre>
+      <pre>
             <code>GET /articles?<mark>include=author</mark> HTTP/1.1</code>
         </pre>
 
-        <pre>
+      <pre>
             <code class="next">GET /articles?<mark>include=author,image</mark> HTTP/1.1</code>
         </pre>
 
-        <pre>
+      <pre>
             <code class="next">GET /articles?<mark>include=author,author.avatar</mark> HTTP/1.1</code>
         </pre>
     </section>
 
     <section class="slide">
-        <h2>Проблема дублирования данных</h2>
-        <p style="font-size: 40px;">Выведем 10 статей с указанием автора, у всех статей один автор</p>
-        <p style="font-size: 40px;" class="next"><b>Итого: один автор включен в ответ 10 раз</b></p>
+      <h2>Проблема дублирования данных</h2>
+      <p style="font-size: 40px">
+        Выведем 10 статей с указанием автора, у всех статей один автор
+      </p>
+      <p style="font-size: 40px" class="next">
+        <b>Итого: один автор включен в ответ 10 раз</b>
+      </p>
     </section>
 
     <section class="slide">
-        <h2>👌 Решение: нормализация данных</h2>
-        <pre class="next">
+      <h2>👌 Решение: нормализация данных</h2>
+      <pre class="next">
             <code>HTTP/1.1 200 OK</code>
             <code>{ "data": [{</code>
             <code>    "id": "1", <mark>"type": "article"</mark>,</code>
@@ -528,8 +591,8 @@
     </section>
 
     <section class="slide">
-        <h2>👌 Решение: нормализация данных</h2>
-        <pre class="next" style="font-size: 0.9em;">
+      <h2>👌 Решение: нормализация данных</h2>
+      <pre class="next" style="font-size: 0.9em">
             <code>HTTP/1.1 200 OK</code>
             <code>{ "data": [{</code>
             <code>    ...</code>
@@ -542,8 +605,8 @@
     </section>
 
     <section class="slide">
-        <h2>👌 Решение: нормализация данных</h2>
-        <pre style="font-size: 0.9em;">
+      <h2>👌 Решение: нормализация данных</h2>
+      <pre style="font-size: 0.9em">
             <code>HTTP/1.1 200 OK</code>
             <code>{</code>
             <code>  "data": [ ... ],</code>
@@ -556,18 +619,21 @@
     </section>
 
     <section class="slide">
-        <h2 class="shout" style="font-size: 3em; padding: 0 40px; width: calc(100% - 80px);">
-            Нужны не все поля ресурса
-        </h2>
+      <h2
+        class="shout"
+        style="font-size: 3em; padding: 0 40px; width: calc(100% - 80px)"
+      >
+        Нужны не все поля ресурса
+      </h2>
     </section>
 
     <section class="slide">
-        <h2>👌 Решение</h2>
-        <pre>
+      <h2>👌 Решение</h2>
+      <pre>
             <code class="next">GET /articles<mark>?fields[article]=title</mark> HTTP/1.1</code>
         </pre>
 
-        <pre class="next">
+      <pre class="next">
             <code>HTTP/1.1 200 OK</code>
             <code>{ "data": [{</code>
             <code>    "id": "1", "type": "article",</code>
@@ -578,63 +644,76 @@
     </section>
 
     <section class="slide">
-        <h2 class="shout" style="font-size: 3em; padding: 0 40px; width: calc(100% - 80px);">Поиск по&nbsp;статьям</h2>
+      <h2
+        class="shout"
+        style="font-size: 3em; padding: 0 40px; width: calc(100% - 80px)"
+      >
+        Поиск по&nbsp;статьям
+      </h2>
     </section>
 
     <section class="slide">
-        <h2>👌 Решение</h2>
+      <h2>👌 Решение</h2>
 
-        <pre>
+      <pre>
             <code class="next">GET /articles<mark>?filters[search]=api</mark> HTTP/1.1</code>
         </pre>
 
-        <pre>
+      <pre>
             <code class="next">GET /articles<mark>?filters[from_date]=1538332156</mark> HTTP/1.1</code>
         </pre>
 
-        <pre>
+      <pre>
             <code class="next">GET /articles<mark>?filters[is_published]=true</mark> HTTP/1.1</code>
         </pre>
 
-        <pre>
+      <pre>
             <code class="next">GET /articles<mark>?filters[author]=1</mark> HTTP/1.1</code>
         </pre>
     </section>
 
     <section class="slide">
-        <h2 class="shout" style="font-size: 3em; padding: 0 40px; width: calc(100% - 80px);">
-            Нужна сортировка
-        </h2>
+      <h2
+        class="shout"
+        style="font-size: 3em; padding: 0 40px; width: calc(100% - 80px)"
+      >
+        Нужна сортировка
+      </h2>
     </section>
 
     <section class="slide">
-        <h2>👌 Решение</h2>
+      <h2>👌 Решение</h2>
 
-        <pre class="next">
+      <pre class="next">
             <code>GET /articles<mark>?sort=title</mark> HTTP/1.1</code>
         </pre>
 
-        <pre class="next">
+      <pre class="next">
             <code>GET /articles<mark>?sort=published_at</mark> HTTP/1.1</code>
         </pre>
 
-        <pre class="next">
+      <pre class="next">
             <code>GET /articles<mark>?sort=-published_at</mark> HTTP/1.1</code>
         </pre>
 
-        <pre class="next">
+      <pre class="next">
             <code>GET /articles<mark>?sort=author,-published_at</mark> HTTP/1.1</code>
         </pre>
     </section>
 
     <section class="slide">
-        <h2 class="shout" style="font-size: 3em; padding: 0 40px; width: calc(100% - 80px);">Нужно поменять URLs</h2>
+      <h2
+        class="shout"
+        style="font-size: 3em; padding: 0 40px; width: calc(100% - 80px)"
+      >
+        Нужно поменять URLs
+      </h2>
     </section>
 
     <section class="slide">
-        <h2>👌 Решение: гипермедиа (HATEOAS)</h2>
+      <h2>👌 Решение: гипермедиа (HATEOAS)</h2>
 
-        <pre style="font-size: 0.8em;">
+      <pre style="font-size: 0.8em">
             <code>GET /articles HTTP/1.1</code>
             <code>{</code>
             <code>  "data": [{</code>
@@ -648,9 +727,9 @@
     </section>
 
     <section class="slide">
-        <h2>👌 Решение: гипермедиа (HATEOAS)</h2>
+      <h2>👌 Решение: гипермедиа (HATEOAS)</h2>
 
-        <pre style="font-size: 0.8em;">
+      <pre style="font-size: 0.8em">
             <code>  ...</code>
             <code>  "relationships": {</code>
             <code>    "comments": {</code>
@@ -664,87 +743,103 @@
     </section>
 
     <section class="slide">
-        <h2>Новый Media Type</h2>
-        <figure>
-            <blockquote>
-                <p>
-                    <div>(registered 2013-07-21, last updated 2013-07-21)</div>
-                    <div>Name : Steve Klabnik</div>
-                    <div>Email : steve&steveklabnik.com</div>
-                    <div>MIME media type name : Application</div>
-                    <div>MIME subtype name : Vendor Tree - vnd.api+json</div>
-                </p>
-            </blockquote>
-            <figcaption>
-                <a href="http://www.iana.org/assignments/media-types/application/vnd.api+json" target="_blank">
-                    http://www.iana.org/assignments/media-types/application/vnd.api+json
-                </a>
-            </figcaption>
-        </figure>
+      <h2>Новый Media Type</h2>
+      <figure>
+        <blockquote>
+          <div>(registered 2013-07-21, last updated 2013-07-21)</div>
+          <div>Name : Steve Klabnik</div>
+          <div>Email : steve&steveklabnik.com</div>
+          <div>MIME media type name : Application</div>
+          <div>MIME subtype name : Vendor Tree - vnd.api+json</div>
+        </blockquote>
+        <figcaption>
+          <a
+            href="http://www.iana.org/assignments/media-types/application/vnd.api+json"
+            target="_blank"
+          >
+            http://www.iana.org/assignments/media-types/application/vnd.api+json
+          </a>
+        </figcaption>
+      </figure>
     </section>
 
     <section class="slide">
-        <img class="place" width="640" src="pictures/jsonapi.png" alt="JSON:API">
+      <img
+        class="place"
+        width="640"
+        src="pictures/jsonapi.png"
+        alt="JSON:API"
+      />
     </section>
 
     <section class="slide">
-        <img class="cover h" src="pictures/http-rest-jsonapi.png" alt="http-rest-jsonapi" style="height: 80%;">
+      <img
+        class="cover h"
+        src="pictures/http-rest-jsonapi.png"
+        alt="http-rest-jsonapi"
+        style="height: 80%"
+      />
     </section>
 
     <section class="slide">
-        <h2>🌊 Экосистема JSON:API</h2>
-        <p>
-            Список реализаций спефикации &mdash;
-            <a href="https://jsonapi.org/implementations/" target="_blank">https://jsonapi.org/implementations/</a>
-        </p>
-        <ol>
-            <li class="next">~190 различных реализаций</li>
-            <li class="next">для ~30 языков программирования</li>
-            <li class="next">и это только добавленные в каталог</li>
-            <li class="next">PR welcome</li>
-        </ol>
+      <h2>🌊 Экосистема JSON:API</h2>
+      <p>
+        Список реализаций спефикации &mdash;
+        <a href="https://jsonapi.org/implementations/" target="_blank"
+          >https://jsonapi.org/implementations/</a
+        >
+      </p>
+      <ol>
+        <li class="next">~190 различных реализаций</li>
+        <li class="next">для ~30 языков программирования</li>
+        <li class="next">и это только добавленные в каталог</li>
+        <li class="next">PR welcome</li>
+      </ol>
     </section>
 
     <section class="slide">
-        <h2>➕ Плюсы JSON:API</h2>
+      <h2>➕ Плюсы JSON:API</h2>
 
-        <ol>
-            <li class="next">Общее соглашение для всех</li>
-            <li class="next">Меньше споров внутри команды</li>
-            <li class="next">Высокая производительность разработки</li>
-            <li class="next">Популярные проблемы уже решены</li>
-            <li class="next">Прост для понимания</li>
-            <li class="next">Лаконичен</li>
-            <li class="next">Open Source</li>
-        </ol>
+      <ol>
+        <li class="next">Общее соглашение для всех</li>
+        <li class="next">Меньше споров внутри команды</li>
+        <li class="next">Высокая производительность разработки</li>
+        <li class="next">Популярные проблемы уже решены</li>
+        <li class="next">Прост для понимания</li>
+        <li class="next">Лаконичен</li>
+        <li class="next">Open Source</li>
+      </ol>
     </section>
 
     <section class="slide">
-        <h2>🤯 Минусы JSON:API</h2>
+      <h2>🤯 Минусы JSON:API</h2>
 
-        <ol>
-            <li class="next"><b>Фронтенд</b>: надо парсить ответы</li>
-            <li class="next"><b>Бэкенд</b>: контроль вложенности</li>
-            <li class="next"><b>Бэкенд</b>: сложность запросов к БД</li>
-            <li class="next"><b>Бэкенд</b>: безопасность</li>
-            <li class="next">Спека сложно читается (не все смогли)</li>
-            <li class="next">Не все либы реализуют спеку хорошо</li>
-        </ol>
+      <ol>
+        <li class="next"><b>Фронтенд</b>: надо парсить ответы</li>
+        <li class="next"><b>Бэкенд</b>: контроль вложенности</li>
+        <li class="next"><b>Бэкенд</b>: сложность запросов к БД</li>
+        <li class="next"><b>Бэкенд</b>: безопасность</li>
+        <li class="next">Спека сложно читается (не все смогли)</li>
+        <li class="next">Не все либы реализуют спеку хорошо</li>
+      </ol>
     </section>
 
     <section class="slide">
-        <h2 class="shout" style="font-size: 3em; padding: 0 40px; width: calc(100% - 80px);">
-            Подводные камни JSON:API
-        </h2>
+      <h2
+        class="shout"
+        style="font-size: 3em; padding: 0 40px; width: calc(100% - 80px)"
+      >
+        Подводные камни JSON:API
+      </h2>
     </section>
 
     <section class="slide">
-        <h2>🤔 Количество relationships в выдаче неограничено</h2>
+      <h2>🤔 Количество relationships в выдаче неограничено</h2>
 
-        <pre style="font-size: 0.8em;">
+      <pre style="font-size: 0.8em">
             <code>GET /articles/1?include=comments HTTP/1.1</code>
         </pre>
-        <pre style="font-size: 0.8em;" class="next">
+      <pre style="font-size: 0.8em" class="next">
             <code>  ...</code>
             <code>  "relationships": {</code>
             <code>    "comments": {</code>
@@ -755,12 +850,12 @@
     </section>
 
     <section class="slide">
-        <h2>☝️ Правильно</h2>
+      <h2>☝️ Правильно</h2>
 
-        <pre style="font-size: 0.8em;">
+      <pre style="font-size: 0.8em">
             <code>GET /comments?<mark>filters[article]=1</mark>&page[size]=30 HTTP/1.1</code>
         </pre>
-        <pre style="font-size: 0.8em;" class="next">
+      <pre style="font-size: 0.8em" class="next">
             <code>{</code>
             <code>  "data": <mark>[0 ... 29]</mark></code>
             <code>}</code>
@@ -768,25 +863,25 @@
     </section>
 
     <section class="slide">
-        <h2>Неоднозначность</h2>
+      <h2>Неоднозначность</h2>
 
-        <pre style="font-size: 1em;" class="next">
+      <pre style="font-size: 1em" class="next">
             <code>GET /articles/1<mark>?include=comments</mark> HTTP/1.1</code>
         </pre>
 
-        <pre style="font-size: 1em;" class="next">
+      <pre style="font-size: 1em" class="next">
             <code>GET /articles/1/comments HTTP/1.1</code>
         </pre>
 
-        <pre style="font-size: 1em;" class="next">
+      <pre style="font-size: 1em" class="next">
             <code>GET /comments<mark>?filters[article]=1</mark> HTTP/1.1</code>
         </pre>
     </section>
 
     <section class="slide">
-        <h2>🤔 Полиморфные связи "один ко многим"</h2>
+      <h2>🤔 Полиморфные связи "один ко многим"</h2>
 
-        <pre style="font-size: 0.8em;">
+      <pre style="font-size: 0.8em">
             <code>GET /comments?include=commentable HTTP/1.1</code>
             <code> </code>
             <code>  ...</code>
@@ -799,9 +894,9 @@
     </section>
 
     <section class="slide">
-        <h2>🤔 Сложные связи "многие ко многим"</h2>
+      <h2>🤔 Сложные связи "многие ко многим"</h2>
 
-        <pre style="font-size: 0.8em;">
+      <pre style="font-size: 0.8em">
             <code>GET /users?include=<mark>users_comments</mark> HTTP/1.1</code>
             <code> </code>
             <code>  ...</code>
@@ -814,63 +909,109 @@
     </section>
 
     <section class="slide">
-        <h2 class="shout" style="font-size: 3em; padding: 0 40px; width: calc(100% - 80px);">
-            OpenAPI (Swagger)
-        </h2>
+      <h2
+        class="shout"
+        style="font-size: 3em; padding: 0 40px; width: calc(100% - 80px)"
+      >
+        OpenAPI (Swagger)
+      </h2>
     </section>
 
-    <section class="slide clear" style="background-color: #fafafa;">
-        <img class="cover" src="pictures/petstore.png" alt="Petstore">
+    <section class="slide clear" style="background-color: #fafafa">
+      <img class="cover" src="pictures/petstore.png" alt="Petstore" />
     </section>
 
-    <section class="slide clear" style="background-color: #e9f6f0;">
-        <img class="cover" src="pictures/petstore_model.png" alt="Petstore Model">
+    <section class="slide clear" style="background-color: #e9f6f0">
+      <img
+        class="cover"
+        src="pictures/petstore_model.png"
+        alt="Petstore Model"
+      />
     </section>
 
-    <section class="slide clear" style="background-color: #eff7ff;">
-        <img class="cover" src="pictures/swagger.png" alt="JSON:API Swagger">
-    </section>
-
-    <section class="slide">
-        <h2 class="shout" style="font-size: 3em; padding: 0 40px; width: calc(100% - 80px);">
-            Чем JSON:API отличается<br>от&nbsp;GraphQL?
-        </h2>
-    </section>
-
-    <section class="slide">
-        <h2 class="shout" style="font-size: 3em; padding: 0 40px; width: calc(100% - 80px);">ВСЕМ</h2>
+    <section class="slide clear" style="background-color: #eff7ff">
+      <img class="cover" src="pictures/swagger.png" alt="JSON:API Swagger" />
     </section>
 
     <section class="slide">
-        <div style="font-size: 3em; text-align: center; line-height: 1.5em; margin-top: 50px;">
-            <b>Спецификация</b><br>vs<br><b>Язык запросов</b>
-        </div>
+      <h2
+        class="shout"
+        style="font-size: 3em; padding: 0 40px; width: calc(100% - 80px)"
+      >
+        Чем JSON:API отличается<br />от&nbsp;GraphQL?
+      </h2>
     </section>
 
     <section class="slide">
-        <div style="font-size: 3em; text-align: center; line-height: 1.5em; margin-top: 50px;">
-            <b>REST</b><br>vs<br><b>не REST</b>
-        </div>
+      <h2
+        class="shout"
+        style="font-size: 3em; padding: 0 40px; width: calc(100% - 80px)"
+      >
+        ВСЕМ
+      </h2>
     </section>
 
     <section class="slide">
-        <div style="font-size: 3em; text-align: center; line-height: 1.5em; margin-top: 50px;">
-            <b>Эволюция</b><br>vs<br><b>Революция</b>
-        </div>
+      <div
+        style="
+          font-size: 3em;
+          text-align: center;
+          line-height: 1.5em;
+          margin-top: 50px;
+        "
+      >
+        <b>Спецификация</b><br />vs<br /><b>Язык запросов</b>
+      </div>
     </section>
 
     <section class="slide">
-        <h2 class="shout" style="font-size: 3em; padding: 0 40px; width: calc(100% - 80px);">Альтернативы</h2>
+      <div
+        style="
+          font-size: 3em;
+          text-align: center;
+          line-height: 1.5em;
+          margin-top: 50px;
+        "
+      >
+        <b>REST</b><br />vs<br /><b>не REST</b>
+      </div>
     </section>
 
     <section class="slide">
-        <h2 class="shout" style="font-size: 3em; padding: 0 40px; width: calc(100% - 80px);">OData (2015)</h2>
+      <div
+        style="
+          font-size: 3em;
+          text-align: center;
+          line-height: 1.5em;
+          margin-top: 50px;
+        "
+      >
+        <b>Эволюция</b><br />vs<br /><b>Революция</b>
+      </div>
     </section>
 
     <section class="slide">
-        <h2>OData (2015) - the best way to REST</h2>
+      <h2
+        class="shout"
+        style="font-size: 3em; padding: 0 40px; width: calc(100% - 80px)"
+      >
+        Альтернативы
+      </h2>
+    </section>
 
-        <pre>
+    <section class="slide">
+      <h2
+        class="shout"
+        style="font-size: 3em; padding: 0 40px; width: calc(100% - 80px)"
+      >
+        OData (2015)
+      </h2>
+    </section>
+
+    <section class="slide">
+      <h2>OData (2015) - the best way to REST</h2>
+
+      <pre>
             <code>GET http://services.odata.org/v4/TripRW/People HTTP/1.1</code>
             <code>OData-Version: 4.0</code>
             <code>OData-MaxVersion: 4.0</code>
@@ -878,9 +1019,9 @@
     </section>
 
     <section class="slide">
-        <h2>OData (2015) - the best way to REST</h2>
+      <h2>OData (2015) - the best way to REST</h2>
 
-        <pre style="font-size: 0.7em;">
+      <pre style="font-size: 0.7em">
             <code>HTTP/1.1 200 OK</code>
             <code>Content-Type: application/json; odata.metadata=minimal</code>
             <code>OData-Version: 4.0</code>
@@ -895,40 +1036,63 @@
     </section>
 
     <section class="slide">
-        <h2>За подробностями</h2>
-        <ol>
-            <li><a href="https://jsonapi.org" target="_blank">https://jsonapi.org</a></li>
-            <li><a href="https://www.odata.org" target="_blank">https://www.odata.org</a></li>
-            <li><a href="https://graphql.org" target="_blank">https://graphql.org</a></li>
-            <li><a href="http://xmlrpc.com/" target="_blank">http://xmlrpc.com/</a></li>
-            <li><a href="https://www.jsonrpc.org" target="_blank">https://www.jsonrpc.org</a></li>
-        </ol>
+      <h2>За подробностями</h2>
+      <ol>
+        <li>
+          <a href="https://jsonapi.org" target="_blank">https://jsonapi.org</a>
+        </li>
+        <li>
+          <a href="https://www.odata.org" target="_blank"
+            >https://www.odata.org</a
+          >
+        </li>
+        <li>
+          <a href="https://graphql.org" target="_blank">https://graphql.org</a>
+        </li>
+        <li>
+          <a href="http://xmlrpc.com/" target="_blank">http://xmlrpc.com/</a>
+        </li>
+        <li>
+          <a href="https://www.jsonrpc.org" target="_blank"
+            >https://www.jsonrpc.org</a
+          >
+        </li>
+      </ol>
     </section>
 
-    <section class="slide clear" style="background-color: #c30400;">
-        <img class="cover h" src="pictures/4df7ea9931f24719762911e4af849a09.png" alt="bike-shedding">
+    <section class="slide clear" style="background-color: #c30400">
+      <img
+        class="cover h"
+        src="pictures/4df7ea9931f24719762911e4af849a09.png"
+        alt="bike-shedding"
+      />
     </section>
 
     <section class="slide">
-        <h2>👏 Спасибо!</h2>
+      <h2>👏 Спасибо!</h2>
 
-        <ul>
-            <li>👨 Алексей Авдеев</li>
-            <li>🌐 <a href="https://github.com/avdeev">https://github.com/avdeev</a></li>
-            <li>🌐 <a href="https://neuron.digital/">Neuron.Digital</a></li>
-        </ul>
+      <ul>
+        <li>👨 Алексей Авдеев</li>
+        <li>
+          🌐 <a href="https://github.com/avdeev">https://github.com/avdeev</a>
+        </li>
+        <li>🌐 <a href="https://neuron.digital/">Neuron.Digital</a></li>
+      </ul>
 
-        <img src="pictures/iam.jpg" alt="я" style="height: 250px; position: absolute; right: 80px; top: 141px;">
+      <img
+        src="pictures/iam.jpg"
+        alt="я"
+        style="height: 250px; position: absolute; right: 80px; top: 141px"
+      />
     </section>
 
     <footer class="badge">
-        <a href="https://github.com/shower/shower">Powered by Shower</a>
+      <a href="https://github.com/shower/shower">Powered by Shower</a>
     </footer>
 
     <div class="progress"></div>
 
     <script src="shower/shower.min.js"></script>
     <!-- Copyright © 2018 Yours Truly, Famous Inc. -->
-
-</body>
+  </body>
 </html>
